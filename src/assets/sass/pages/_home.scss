@@ -1,0 +1,16 @@
+html {
+    background-color: $color-light-2;
+    font-size: 62.5%;
+}
+
+body {
+    font-family: $font-jost-regular;
+}
+
+.container {
+    width: 110rem;
+    height: 69.6rem;
+    margin: 9.4rem auto;
+    display: flex;
+    flex-direction: row;
+}
