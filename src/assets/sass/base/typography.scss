@@ -1,6 +1,25 @@
 .heading-one {
     font-size: 2.4rem;
-                font-family: $font-jost-bold;
-                color: $color-deep-light-blue;
-                line-height: 3.5rem;
+    font-family: $font-jost-bold;
+    color: $color-deep-light-blue;
+    line-height: 3.5rem;
+}
+
+.heading-two {
+    font-size: 1.8rem;
+    font-family: $font-jost-bold;
+    color: $color-deep-light-blue;
+    line-height: 2.6rem;
+}
+
+.regular {
+    font-weight: 300;
+}
+
+.semibold {
+    font-weight: 500;
+}
+
+.bold {
+    font-weight: 700;
 }

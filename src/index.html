@@ -12,85 +12,87 @@
 
 
 <div class="container">
-  <div class="sidebar"></div>
-
-  <div class="main">
-    <div class="main-header">
-      <div class="main-suggestions">
-        <img class="main-suggestions-img" src="./assets/images/icons/suggestion-icon.png" alt="">
-        <p><span class="main-suggestions-counter">0</span>&nbsp;&nbsp;&nbsp;Suggestion</p>
-      </div>
-      <div class="main-sort">
-        <div>Sort by: 
-          <span>Most upvotes</span>
-          <select name="" id="">
-            <option value="1"></option>
-            <option value="2"></option>
-            <option value="3"></option>
-            <option value="4"></option>
-          </select>
-        </div>
-      </div>
-      <div class="button"><a class="btn" href="#">+Add feedback</a></div>
-
+  <div class="sidebar">
+    <div class="sidebar__header block block__white">
+      <h1 class="heading__one">Frontend Mentor</h1>
+      <p class="paragraph paragraph_white">Feedback Board</p>
     </div>
-    <div class="main-content">
-      <div class="main-message">
-        <div><img class="main-message-img" src="./assets/images/No-feedback.png" alt="No feedback's yet"></div>
-        <div class="main-title">
-          <h1 class="heading-one">There is no feedback yet.</h1>
-          <p class="paragraph">Got a suggestion? Found a bug that needs to be squashed? We love hearing about new ideas to improve our app.</p>
-        </div>
-        <button class="btn">+Add feedback</button>
+    <div class="sidebar__tags block block__white pt-light">
+      <a href="#" class="tag tag__active">All</a>
+      <a href="#" class="tag">UI</a>
+      <a href="#" class="tag">UX</a>
+      <a href="#" class="tag">Enhancement</a>
+      <a href="#" class="tag">Bug</a>
+      <a href="#" class="tag">Feature</a>
+    </div>
+
+    <div class="sidebar__roadmap block block__white pt-light">
+      <div class="sidebar__item">
+        <h1 class="heading-two">Roadmap</h1>
+        <span class="sidebar__link">
+          <a class="sidebar__into-roadmap" href="./roadmap.html">View</a>
+        </span>
+      </div>
+      <div class="sidebar__item">
+        <span class="color-shape color-shape__planned"></span>
+        <span class="sidebar__text">Planned</span>
+        <span class="sidebar__planned-counter">0</span>
+      </div>
+      <div class="sidebar__item">
+        <span class="color-shape color-shape__in-progress"></span>
+        <span class="sidebar__text">In-progress</span>
+        <span class="sidebar__in-progress-counter">0</span>
+      </div>
+      <div class="sidebar__item">
+        <span class="color-shape color-shape__live"></span>
+        <span class="sidebar__text">Live</span>
+        <span class="sidebar__live-counter">0</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="main-content__header block">
+      <div class="main-content__info-list">
+          <div class="main-content__logo">
+            <img class="main-content-img" src="./assets/images/icons/suggestion-icon.png" alt="">
+          </div>
+          <div class="main-content__suggestions">
+            <span class="main-content__counter">0</span>
+            Suggestions
+          </div>
+          <div class="main-content__sort">
+            Sort by:
+            <span class="bold">Most upvotes</span>
+            <select name="" id="" class="main-content__select">
+              <!-- <option value="1">Most upvotes</option>
+              <option value="2">Least upvotes</option>
+              <option value="3">Most comments</option>
+              <option value="4">Least comments</option> -->
+            </select>
+          </div>
+          <div class="main-content__button">
+            <a href="#" class="btn">+Add feedback</a>
+          </div>
+      </div>
+    </div>
+    <div class="main-content__field block">
+      <div class="message-box">
+          <div class="message-box__logo"><img class="main-message-img" src="./assets/images/No-feedback.png" alt="No feedback's yet"></div>
+          <div class="message-box__tittle">
+            <h1 class="heading-one">There is no feedback yet.</h1>
+          </div>
+          <div class="message-box__text">
+            <p class="paragraph">Got a suggestion? Found a bug that needs to be squashed? We love hearing about new ideas to improve our app.</p>
+          </div>
+          <div class="message-box__button">
+            <a href="#" class="btn">Add feedback</a>
+          </div>
+        
       </div>
     </div>
   </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-<!--   
-  Frontend Mentor
-  Feedback Board -->
-
-  <!-- Sidebar -->
-  <!-- All
-  UI
-  UX
-  Enhancement
-  Bug
-  Feature
-
-  Roadmap
-  View -->
-
-  <!-- Planned Add number here -->
-  <!-- In-Progress Add number here -->
-  <!-- Live Add number here -->
-
-  <!-- Sidebar end -->
-
-  <!-- Add number of suggestions here Suggestions -->
-  <!-- Sort by:
-  Most upvotes
-  Least upvotes
-  Most comments
-  Least comments
-
-  Add Feedback -->
-
-  <!-- No feedback -->
-  <!-- There is no feedback yet. Got a suggestion? Found a bug that needs to be squashed? We love 
-  hearing about new ideas to improve our app. -->
-
-  <!-- Add Feedback -->
-  <!-- No feedback end -->
 </body>
 </html>

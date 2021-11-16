@@ -1,0 +1,18 @@
+.color-shape {
+    display: inline-block;
+    width: .8rem;
+    height: .8rem;
+    border-radius: 50%;
+
+    &__planned {
+        background-color: $color-orange;
+    }
+
+    &__in-progress {
+        background-color: $color-magenta;
+    }
+
+    &__live {
+        background-color: $color-light-blue;
+    }
+}

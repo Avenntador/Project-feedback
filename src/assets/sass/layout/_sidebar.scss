@@ -1,5 +1,69 @@
 .sidebar {
     width: 25.5rem;
     height: 52.9rem;
-    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__header {
+        height: 13.7rem;
+        background-image: url('../../images/suggestions/desktop/background-header.png');
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        color: $color-white;
+    }
+
+    &__tags {
+        height: 16.3rem;
+    }
+
+    &__roadmap {
+        height: 16.3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+    
+        span {
+            display: inline-block;
+        }
+    }
+
+    &__text {
+        margin-left: 1.5rem;
+        font-size: 1.6rem;
+        font-weight: 400;
+        line-height: 2.3rem;
+    }
+
+    &__link {
+        margin-left: auto;
+    }
+
+    &__into-roadmap {
+        font-weight: 600;
+        font-size: 1.3rem;
+        line-height: 1.9rem;
+        color: $color-light-grey;
+    }
+
+    
+    
+
+    &__planned-counter,
+    &__in-progress-counter,
+    &__live-counter {
+        margin-left: auto;
+        color: $color-deep-dark-grey;
+        font-size: 1.6rem;
+        font-weight: 700;
+    }
+
+
 }

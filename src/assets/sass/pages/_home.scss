@@ -5,6 +5,7 @@ html {
 
 body {
     font-family: $font-jost-regular;
+    letter-spacing: .1rem;
 }
 
 .container {
@@ -12,5 +13,4 @@ body {
     height: 69.6rem;
     margin: 9.4rem auto;
     display: flex;
-    flex-direction: row;
 }
