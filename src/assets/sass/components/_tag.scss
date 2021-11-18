@@ -6,8 +6,8 @@
     text-decoration: none;
     font-size: 1.3rem;
     font-weight: 600;
+    font-family: $font-jost-regular;
     display: inline-block;
-    margin: .3rem;
 
     &__active {
         background-color: $color-dark-blue;

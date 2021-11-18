@@ -8,5 +8,13 @@
     font-size: 1.4rem;
     line-height: 2rem;
     text-decoration: none;
-    padding: 1.5rem 2rem;
+    padding: 1rem 1.5rem;
+
+    &__magenta {
+        background: $color-magenta;
+    }
+
+    &__blue {
+        background: $color-dark-blue;
+    }
 }

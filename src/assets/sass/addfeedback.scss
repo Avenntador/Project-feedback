@@ -1,15 +1,14 @@
 @import "~normalize.css";
-
 @import './base/reset';
 @import './abstracts/variables';
-@import './pages/roadmapPage';
-
-@import './components/button';
+@import './pages/new-feebackPage.scss';
 @import './base/typography.scss';
-@import './components/tag';
-@import './abstracts/utilities';
-@import './components/color-shape';
 
-@import './components/paragraph';
-@import './components/card';
+
+@import './abstracts/utilities';
 @import './components/link';
+@import './components/tag';
+@import './components/color-shape';
+@import './components/input';
+@import './components/button';
+@import './components/paragraph';

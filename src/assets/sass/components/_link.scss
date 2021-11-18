@@ -1,0 +1,11 @@
+.link {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+    color: $color-deep-dark-grey;
+    text-decoration: none;
+
+    &_white {
+        color: $color-white;
+    }
+}

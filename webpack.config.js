@@ -6,7 +6,7 @@ const {
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
-
+const HtmlWebpackInlineSVGPlugin = require('html-webpack-inline-svg-plugin');
 
 const isDev = process.env.NODE_ENV === 'development'
 const isProd = !isDev;
@@ -37,7 +37,8 @@ module.exports = {
     entry: {
         index: '/app.ts',
         roadmap: '/roadmap.ts',
-        
+        addfeedback: '/addfeedback.ts',
+        feedbackDetail: './feedback-detail.ts'
     },
     output: {
         filename: 'js/[name].bundle.js',
@@ -61,11 +62,22 @@ module.exports = {
             chunks: ['index'],
         }),
         new HTMLWebpackPlugin({
+            filename: 'addfeedback.html',
+            template: './addfeedback.html',
+            chunks: ['addfeedback'],
+        }),
+        new HTMLWebpackPlugin({
             filename: 'roadmap.html',
             template: './roadmap.html',
             chunks: ['roadmap'],
         }),
+        new HTMLWebpackPlugin({
+            filename: 'feedback-detail.html',
+            template: './feedback-detail.html',
+            chunks: ['feedbackDetail'],
+        }),
         
+        new HtmlWebpackInlineSVGPlugin(),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: 'css/[name].bundle.css'

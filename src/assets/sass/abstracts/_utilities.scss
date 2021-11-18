@@ -1,3 +1,54 @@
-.pt-light {padding-top: 1rem;}
-.pt-medium {padding-top: 2rem;}
-.pt-hard {padding-top: 3rem;}
+.pt-light {
+    padding-top: 1rem;
+}
+
+.pt-medium {
+    padding-top: 2rem;
+}
+
+.pt-hard {
+    padding-top: 3rem;
+}
+
+
+.mt-hard {
+    margin-top: 4.7rem;
+}
+
+.mt-md {
+    margin-top: 2rem;
+}
+
+.ml-light {
+    margin-left: 1.6rem;
+}
+
+.mr-light {
+    margin-right: 1.6rem;
+}
+
+.mt-light {
+    margin-top: 2.4rem;
+}
+
+.mb-light {
+    margin-bottom: 2.4rem;
+}
+
+.ml-md {
+    margin-left: 4rem;
+}
+
+.flex-center-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.flex-center-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}

@@ -1,0 +1,61 @@
+html {
+    font-size: 62.5%;
+    background: #F7F8FD;
+  }
+
+.roadmap__container {
+    width: 110rem;
+    height: 107rem;
+    margin: 7.8rem auto;
+}
+
+.roadmap {
+    &__header {
+        height: 11.3rem;
+        background: #373F68;
+        border-radius: 10px;
+        padding: 0 4rem;
+        color: white;
+        display: flex;
+        align-items: center;
+    }
+
+    &__nav {
+        h1 {
+            color: white;
+            margin: .2rem 0;
+        }
+    }
+
+    &__cards {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 5rem;
+    }
+
+    &__planned,
+    &__in-progress,
+    &__live {
+        width: 35rem;
+        height: 65.3rem;
+    }
+
+    &__title {
+        margin-bottom: 3.4rem;
+        h2, p {
+            margin: .5rem 0;
+        }
+    }
+
+    &__button {
+        margin-left: auto;
+    }
+
+    &__status {
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 23px;
+        color: #647196;
+    }
+
+}

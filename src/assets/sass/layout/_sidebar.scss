@@ -17,13 +17,17 @@
 
     &__tags {
         height: 16.3rem;
+
+        a {
+            margin: .3rem;
+        }
     }
 
     &__roadmap {
         height: 16.3rem;
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: space-between;
     }
 
     &__item {
@@ -50,7 +54,7 @@
         font-weight: 600;
         font-size: 1.3rem;
         line-height: 1.9rem;
-        color: $color-light-grey;
+        color: $color-dark-blue;
     }
 
     

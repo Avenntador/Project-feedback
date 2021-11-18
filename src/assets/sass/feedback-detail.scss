@@ -2,8 +2,10 @@
 
 @import './base/reset';
 @import './abstracts/variables';
-@import './pages/roadmapPage';
-
+@import './components/feedback';
+@import './pages/feedback-detailPage';
+@import './components/raiting-button';
+@import './components/input';
 @import './components/button';
 @import './base/typography.scss';
 @import './components/tag';

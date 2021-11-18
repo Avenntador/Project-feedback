@@ -1,0 +1,83 @@
+html {
+    background-color: $color-light-2;
+    font-size: 62.5%;
+}
+
+body {
+    font-family: $font-jost-regular;
+    letter-spacing: .1rem;
+    box-sizing: border-box;
+}
+
+
+.feedback-detail {
+    &__container {
+        width: 73rem;
+        height: 126rem;
+        margin: 8rem auto;
+    }
+
+    &__total-comments {
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 26px;
+        letter-spacing: -0.25px;
+        color: #3A4374;
+    }
+
+    &__comments {
+        padding: 2.9rem 3.4rem;
+        width: 73rem;
+        /* height: 66.8rem; */
+        background: #FFFFFF;
+        border-radius: 1rem;
+    }
+
+    &__content {
+        margin-left: 6.9rem;
+    }
+
+    &__add-comment {
+        min-height: 24.6rem;
+        background: #FFFFFF;
+        border-radius: 10px;
+        padding: 2.9rem 3.4rem;
+    }
+
+    &__input-info {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &__character-left {
+        font-weight: normal;
+        font-size: 15px;
+        line-height: 22px;
+        color: #647196;
+    }
+}
+
+.feedback-comment {
+
+    &__user-info {
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__avatar {
+        width: 4rem;
+        height: 4rem;
+        background: black;
+        border-radius: 50%;
+    }
+
+    &__user-info {
+        display: flex;
+        align-items: center;
+    }
+
+    &__title {
+        margin-left: 3.2rem;
+    }
+}

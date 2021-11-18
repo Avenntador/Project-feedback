@@ -1,6 +1,8 @@
 @import "~normalize.css";
+
+@import './base/reset';
 @import './abstracts/variables';
-@import './pages/home';
+@import './pages/homePage';
 
 @import './layout/main';
 @import './layout/sidebar.scss';
@@ -9,3 +11,5 @@
 @import './components/tag';
 @import './abstracts/utilities';
 @import './components/color-shape';
+
+@import './components/paragraph';
