@@ -2,14 +2,12 @@
 
 @import './base/reset';
 @import './abstracts/variables';
-@import './pages/homePage';
-@import './components/feedback';
-@import './layout/main';
-@import './layout/sidebar.scss';
+@import './pages/feedback-editPage';
+
+@import './components/input';
 @import './components/button';
 @import './base/typography.scss';
-@import './components/tag';
 @import './abstracts/utilities';
-@import './components/color-shape';
 
 @import './components/paragraph';
+@import './components/link';

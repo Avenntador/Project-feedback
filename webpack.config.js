@@ -35,10 +35,11 @@ module.exports = {
     context: path.resolve(__dirname, 'src'),
     mode: 'development',
     entry: {
-        index: '/app.ts',
-        roadmap: '/roadmap.ts',
-        addfeedback: '/addfeedback.ts',
-        feedbackDetail: './feedback-detail.ts'
+        index: '/ts/app.ts',
+        roadmap: '/ts/roadmap.ts',
+        addfeedback: '/ts/feedback-add.ts',
+        feedbackDetail: '/ts/feedback-detail.ts',
+        feedbackEdit: '/ts/feedback-edit.ts'
     },
     output: {
         filename: 'js/[name].bundle.js',
@@ -75,6 +76,11 @@ module.exports = {
             filename: 'feedback-detail.html',
             template: './feedback-detail.html',
             chunks: ['feedbackDetail'],
+        }),
+        new HTMLWebpackPlugin({
+            filename: 'feedback-edit.html',
+            template: './feedback-edit.html',
+            chunks: ['feedbackEdit'],
         }),
         
         new HtmlWebpackInlineSVGPlugin(),
