@@ -52,7 +52,7 @@ module.exports = {
     optimization: optimization(),
 
     devServer: {
-        port: 3500,
+        port: 3100,
         hot: isDev
     },
     devtool: isDev ? 'source-map' : false,
@@ -82,7 +82,7 @@ module.exports = {
             template: './feedback-edit.html',
             chunks: ['feedbackEdit'],
         }),
-        
+
         new HtmlWebpackInlineSVGPlugin(),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
@@ -156,7 +156,10 @@ module.exports = {
                 loader: 'html-loader',
             },
 
-
+            {
+                test: /\.json$/,
+                loader: 'json-loader'
+            }
 
 
 
