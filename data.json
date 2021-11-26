@@ -1,5 +1,4 @@
- {
-"data": {
+{
   "currentUser": {
     "image": "./assets/user-images/image-zena.jpg",
     "name": "Zena Kelley",
@@ -10,7 +9,7 @@
       "id": 1,
       "title": "Add tags for solutions",
       "category": "enhancement",
-      "upvotes": 112,
+      "upvotes": 1153,
       "status": "suggestion",
       "description": "Easier to search for solutions based on a specific stack.",
       "comments": [
@@ -38,7 +37,7 @@
       "id": 2,
       "title": "Add a dark theme option",
       "category": "feature",
-      "upvotes": 99,
+      "upvotes": 75,
       "status": "suggestion",
       "description": "It would help people with light sensitivities and who prefer dark mode.",
       "comments": [
@@ -86,7 +85,7 @@
       "id": 3,
       "title": "Q&A within the challenge hubs",
       "category": "feature",
-      "upvotes": 65,
+      "upvotes": 139,
       "status": "suggestion",
       "description": "Challenge-specific Q&A would make for easy reference.",
       "comments": [
@@ -105,11 +104,11 @@
       "id": 4,
       "title": "Add image/video upload to feedback",
       "category": "enhancement",
-      "upvotes": 51,
+      "upvotes": 110,
       "status": "suggestion",
       "description": "Images and screencasts can enhance comments on solutions.",
       "comments": [
-        { 
+        {
           "id": 6,
           "content": "Right now, there is no ability to add images while giving feedback which isn't ideal because I have to use another app to show what I mean",
           "user": {
@@ -133,7 +132,7 @@
       "id": 5,
       "title": "Ability to follow others",
       "category": "feature",
-      "upvotes": 42,
+      "upvotes": 76,
       "status": "suggestion",
       "description": "Stay updated on comments and solutions other people post.",
       "comments": [
@@ -172,7 +171,7 @@
       "id": 6,
       "title": "Preview images not loading",
       "category": "bug",
-      "upvotes": 3,
+      "upvotes": 33,
       "status": "suggestion",
       "description": "Challenge preview images are missing when you apply a filter."
     },
@@ -298,7 +297,22 @@
           ]
         }
       ]
+    },
+    {
+      "id": 13,
+      "title": "SUPER NEW",
+      "category": "Bug",
+      "upvotes": 39,
+      "status": "suggestion",
+      "description": "TYT SUPER NEW FEEDBACK"
+    },
+    {
+      "id": 14,
+      "title": "qqqqqqqqqq",
+      "category": "UI",
+      "upvotes": 38,
+      "status": "suggestion",
+      "description": "wwwwwwwwwww"
     }
   ]
-}
 }

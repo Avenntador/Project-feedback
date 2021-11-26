@@ -20,21 +20,27 @@
         <div class="new-feedback__item mt-hard">
           <h3 class="heading-three">Feedback Title</h3>
           <p class="new-feedback__text">Add a short, descriptive headline</p>
-          <input type="text" class="input">
+          <input id="title" type="text" class="input">
         </div>
         <div class="new-feedback__item mt-md">
           <h3 class="heading-three">Category</h3>
           <p class="new-feedback__text">Choose a category for your feedback</p>
-          <input type="text" class="input">
+          <select id="category" type="text" class="input">
+            <option value="Feature">feature</option>
+            <option value="UI">UI</option>
+            <option value="UX">UX</option>
+            <option value="Enhancement">Enhancement</option>
+            <option value="Bug">bug</option>
+          </select>
         </div>
         <div class="new-feedback__item mt-md">
           <h3 class="heading-three">Feedback Detail</h3>
           <p class="new-feedback__text">Include any specific comments on what should be improved, added, etc.</p>
-          <input type="text" class="input input_detail">
+          <input id="detail" type="text" class="input input_detail">
         </div>
         <div class="new-feedback__buttons">
-          <a href="#" class="btn ">Cancel</a>
-          <a href="#" class="btn btn__magenta ml-light addfeedbackBTN">Add Feedback</a>
+          <a href="./index.html" class="btn ">Cancel</a>
+          <a href="#" id="submitAdd" class="btn btn__magenta ml-light">Add Feedback</a>
         </div>
     </div>
   </div>
