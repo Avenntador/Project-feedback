@@ -22,9 +22,21 @@
 
     }
 
+    &__title {
+        p {
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 23px;
+            color: #647196;
+        }
+
+    }
+
+
     &__social {
         display: flex;
         justify-content: space-between;
+        margin-top: 2rem;
     }
 
     &__raiting {
@@ -47,10 +59,18 @@
     &__comments {
         display: flex;
         align-items: center;
-        font-size: 1.6rem;
-        line-height: 2.3rem;
-        letter-spacing: -0.222222px;
-        color: #3A4374;
+
+        span {
+            font-family: Jost;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 23px;
+            text-align: center;
+            letter-spacing: -0.222222px;
+            color: #3A4374
+        }
+
     }
 
 
