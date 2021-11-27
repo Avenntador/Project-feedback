@@ -14,7 +14,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
 
 
 
-async function addFeedback<T>(body: FeedbackObject): Promise<T> {
+async function addFeedback(body: FeedbackObject) {
     let Response = fetch('http://localhost:3000/productRequests', {
         method: 'POST',
         headers: {
@@ -23,18 +23,19 @@ async function addFeedback<T>(body: FeedbackObject): Promise<T> {
         body: JSON.stringify(body)
     });
 
-    return (await Response).json();
+    return (await Response);
 }
 
 
 
 submitBtn.addEventListener('click', (e) => {
+    e.preventDefault();
     let feedback: FeedbackObject = {
         id: 0,
         title: '',
         category: '',
         upvotes: 0,
-        status: 'suggestion',
+        status: 'Suggestion',
         description: ''
     };
 
@@ -51,10 +52,10 @@ submitBtn.addEventListener('click', (e) => {
     
     addFeedback(feedback)
         .then(Response => {
-            console.log(Response);
+            if (Response.status == 201) {
+                window.location.assign('http://localhost:3100');
+            }
+            
         })
-
-    window.location.assign('http://localhost:3100');
-
 });
 

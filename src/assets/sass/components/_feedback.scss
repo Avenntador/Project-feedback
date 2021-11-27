@@ -55,6 +55,7 @@
         color: #4661E6;
     }
 
+
     &__raiting {
         width: 4rem;
         height: 5.3rem;
@@ -64,5 +65,20 @@
         justify-content: center;
         align-items: center;
         overflow: hidden;
+        font-weight: bold;
+        font-size: 13px;
+        line-height: 19px;
+        letter-spacing: -0.180556px;
+        color: #3A4374;
+        cursor: pointer;
+
+
+        img {
+            margin-bottom: .5rem;
+        }
+        &-active {
+            color: #FFFFFF;
+            background: #4661E6;
+        }
     }
 }

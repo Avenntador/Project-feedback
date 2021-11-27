@@ -1,41 +1,54 @@
 import '../assets/sass/index.scss';
 import { productRequests } from './server-response-interface';
 import { currentUser } from './server-response-interface';
+import { upvoteFeedback } from './services/upvote';
+import { getData } from './services/getData';
+import { renderCategory } from './renderCategory';
+
 
 const iconUp = require("../assets/images/shared/icon-arrow-up.svg") as string;
 const iconComment = require("../assets/images/shared/icon-comments.svg") as string;
 
 
-async function getData<T>(query: string): Promise<T> {
-    let result = fetch(query);
-    return (await result).json();
-}
-
-
-async function upvoteFeedback(id: string, upvote: number) {
-    upvote++;
-   let Response = fetch(`http://localhost:3000/productRequests/${id}`, {
-        method: 'PATCH',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(
-            {
-                "upvotes": upvote
-            }
-        )
-    });
-
-    return await Response;
-}
-
 let currentFeedbacksCounter = 0;
 const field = document.querySelector('.main-content__field')! as HTMLDivElement;
 const msgBox = document.querySelector('.message-box')! as HTMLDivElement;
 const suggestionCounterField = document.querySelector('.main-content__counter')! as HTMLSpanElement;
+const sidePlanned = document.querySelector('.sidebar__planned-counter') as HTMLSpanElement;
+const sideInProgress = document.querySelector('.sidebar__in-progress-counter') as HTMLSpanElement;
+const sideLive = document.querySelector('.sidebar__live-counter') as HTMLSpanElement;
+
+const sidebarTags = document.querySelector('.sidebar__tags') as HTMLDivElement;
+let currenCategorySearch: string;
+
+let selectedTag: Element;
+
+function highlightTag(tag: Element) {
+    if (selectedTag) {
+        selectedTag.classList.remove('tag__active');
+    }
+
+    selectedTag = tag;
+    tag.classList.add('tag__active');
+
+}
+
+sidebarTags.addEventListener('click', (e) => {
+    let target = e.target as HTMLElement;
+
+    if (target.classList.contains('tag')) {
+        e.preventDefault();
+        currenCategorySearch = target.textContent!;
+        highlightTag(target);
+        localStorage.setItem('currentCategorySearch', currenCategorySearch);
+        render(currenCategorySearch);
+    }
+});
 
 
-function render() {
+
+
+function render(categorySearch: string) {
     getData<Array<productRequests>>('http://localhost:3000/productRequests')
         .then(Response => {
             if (Response.length > 0) {
@@ -46,58 +59,103 @@ function render() {
                 currentFeedbacksCounter = Response.length;
 
                 let suggestionCounter = 0;
-
+                let plannedCounter = 0;
+                let inProgressCounter = 0;
+                let liveCounter = 0;
 
                 // msgBox.style.visibility = 'hidden';
 
 
+
+
                 Response.forEach((item, i) => {
 
-                    if (item.status == 'suggestion') {
-                        const div = document.createElement('div');
-                        suggestionCounter++;
+                    switch (item.status) {
+                        case 'Suggestion': {
+                            const div = document.createElement('div');
+                            suggestionCounter++;
 
-                        div.classList.add('feedback');
-                        div.setAttribute('data-id', item.id.toString());
+                            div.classList.add('feedback');
+                            div.setAttribute('data-id', item.id.toString());
+                            div.classList.add('mb-light');
 
-                        if (i != 0) {
-                            div.classList.add('mt-light');
+
+
+                            let commLength = 0;
+                            if (item.comments) commLength = item.comments.length;
+
+
+                            switch (categorySearch) {
+                                case 'All': {
+                                    renderCategory(field, div, item, iconUp, iconComment, commLength);
+                                    break;
+                                }
+
+                                case 'UI': {
+                                    if (item.category == 'UI') {
+                                        renderCategory(field, div, item, iconUp, iconComment, commLength);
+                                    }
+                                    break;
+                                }
+
+                                case 'UX': {
+                                    if (item.category == 'UX') {
+                                        renderCategory(field, div, item, iconUp, iconComment, commLength);
+                                    }
+                                    break;
+                                }
+
+                                case 'Feature': {
+                                    if (item.category == 'Feature') {
+                                        renderCategory(field, div, item, iconUp, iconComment, commLength);
+                                    }
+                                    break;
+                                }
+
+                                case 'Enhancement': {
+                                    if (item.category == 'Enhancement') {
+                                        renderCategory(field, div, item, iconUp, iconComment, commLength);
+                                    }
+                                    break;
+                                }
+
+                                case 'Bug': {
+                                    if (item.category == 'Bug') {
+                                        renderCategory(field, div, item, iconUp, iconComment, commLength);
+                                    }
+                                    break;
+                                }
+                            }
+
+                            break;
                         }
 
+                        case 'Planned': {
+                            plannedCounter++;
+                            break;
+                        }
 
-                        let commLength = 0;
-                        if (item.comments) commLength = item.comments.length;
+                        case 'In-progress': {
+                            inProgressCounter++;
+                            break;
+                        }
 
-                        div.innerHTML = `
-                    <div class="feedback__raiting flex-center-column">
-                            <img inline src="${iconUp}" alt="">
-                            <a href="#" class="raiting-button">${item.upvotes}</a>
-                        </div>
-                        <div class="feedback__desc ml-md">
-                            <h1 class="heading-two">${item.title}</h1>
-                            <div class="feedback__comments">
-                                <p class="paragraph">${item.description}</p>
-                                <div class="feedback__icons flex-center-row">
-                                    <img inline src="${iconComment}" alt="">
-                                    <span class="feedback__count">${commLength}</span>
-                                </div>
-                            </div>
-                            <a href="#" class="tag">${item.category}</a>
-                        </div>
-                `;
-                        field.append(div);
+                        case 'Live': {
+                            liveCounter++;
+                            break;
+                        }
                     }
-
-
                 });
 
                 suggestionCounterField.textContent = suggestionCounter.toString();
+                sidePlanned.textContent = plannedCounter.toString();
+                sideInProgress.textContent = inProgressCounter.toString();
+                sideLive.textContent = liveCounter.toString();
             }
 
             localStorage.setItem('currentFeedbacksCounter', currentFeedbacksCounter.toString());
 
             const feedback = document.querySelectorAll('.feedback') as unknown as HTMLDivElement[];
-
 
             if (feedback) {
                 feedback.forEach(item => {
@@ -107,46 +165,49 @@ function render() {
                         let target = e.target as HTMLElement;
 
                         let feedbackId = item.getAttribute('data-id');
-                        let currentUpvote = '';
+                        let currentUpvote = 0;
 
-                        if (target.classList.contains('raiting-button')) {
-                            console.log('btn clicked')
-                            currentUpvote = target.textContent!;
+                        if (target.classList.contains('feedback__raiting')) {
+
+                            currentUpvote = +target.textContent!;
 
                             upvoteFeedback(feedbackId!, +currentUpvote)
                                 .then((Response) => {
                                     if (Response.status == 200) {
-                                        render();
-                                    }   
+                                        render(categorySearch);
+                                    }
                                 })
-
                         }
-
                     });
                 });
             }
         });
-
-
-
 }
 
 window.addEventListener('DOMContentLoaded', (e) => {
 
+    if (!localStorage.getItem('currentCategorySearch')) {
+        currenCategorySearch = 'All';
+        localStorage.setItem('currentCategorySearch', currenCategorySearch);
+    }
+
+    Array.from(sidebarTags.children).forEach(item => {
+        if (item.textContent == localStorage.getItem('currentCategorySearch')) {
+            highlightTag(item);
+        }
+    });
 
     getData<currentUser>('http://localhost:3000/currentUser')
         .then(Response => {
             localStorage.setItem('currentUser', JSON.stringify(Response));
         });
 
+    currenCategorySearch = localStorage.getItem('currentCategorySearch')!;
 
-    render();
-
-
-
-
-
+    render(currenCategorySearch);
 
 });
+
+
 
 
