@@ -33,7 +33,9 @@ window.addEventListener('DOMContentLoaded', (e) => {
 
 
                 let div = document.createElement('div');
-                div.classList.add('card')
+                div.classList.add('card');
+                div.setAttribute('data-id', item.id.toString());
+
                 switch (item.status) {
                     case 'Planned': {
                         div.classList.add('card__planned');
@@ -77,11 +79,20 @@ window.addEventListener('DOMContentLoaded', (e) => {
                         <span class="card__raiting-counter">${item.upvotes}</span>     
                     </div>
                     <div class="card__comments">
-                        <img class="mr-light" inline src="${iconComment}" alt="2">
+                        <img inline src="${iconComment}" alt="2">
                         <span class="card__comments-counter">${commLength}</span>
                     </div>
                 </div>
                 `;
+
+                div.addEventListener('click', (e) => {
+                    let target = e.target as HTMLDivElement;
+                    let feedback = target.closest('.card');
+
+                    let chosenFeedback = feedback?.getAttribute('data-id');
+                    localStorage.setItem('chosenFeedback', chosenFeedback?.toString()!);
+                    window.location.assign('../feedback-detail.html');
+                });
 
                 switch (item.status) {
                     case 'Planned': {

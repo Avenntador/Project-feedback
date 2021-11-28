@@ -177,10 +177,10 @@
     },
     {
       "id": 7,
-      "title": "More comprehensive reports",
-      "category": "Feature",
+      "title": "More comprehensive reportsKek",
+      "category": "Enhancement",
       "upvotes": 123,
-      "status": "Planned",
+      "status": "Live",
       "description": "It would be great to see a more detailed breakdown of solutions.",
       "comments": [
         {
@@ -246,7 +246,7 @@
       "title": "Bookmark challenges",
       "category": "Feature",
       "upvotes": 31,
-      "status": "In-progress",
+      "status": "Planned",
       "description": "Be able to bookmark challenges to take later on.",
       "comments": [
         {
@@ -310,9 +310,25 @@
       "id": 14,
       "title": "Enchance roadmap please",
       "category": "Enhancement",
-      "upvotes": 2,
+      "upvotes": 3,
       "status": "Suggestion",
       "description": "Pidori"
+    },
+    {
+      "id": 15,
+      "title": "asdasdas",
+      "category": "UI",
+      "upvotes": 0,
+      "status": "Suggestion",
+      "description": "dasdasd"
+    },
+    {
+      "id": 16,
+      "title": "kekekek",
+      "category": "UX",
+      "upvotes": 0,
+      "status": "Suggestion",
+      "description": "kekeke"
     }
   ]
 }

@@ -18,5 +18,6 @@ export function renderCategory(field: HTMLElement, elem: HTMLElement, item: Feed
                 </div>
                 <a href="#" class="tag">${item.category}</a>
             </div>`;
+
     field.append(elem);
 }
