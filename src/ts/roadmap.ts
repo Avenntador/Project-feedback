@@ -26,10 +26,13 @@ window.addEventListener('DOMContentLoaded', (e) => {
             Response.forEach(item => {
 
                 let commLength = 0;
-                if (item.comments) commLength = item.comments.length;
+                if (item.comments) commLength += item.comments.length;
+                item.comments?.forEach(repl => {
+                    if (repl.replies) commLength += repl.replies.length
+                });
 
                 let color_shape = '';
-                
+
 
 
                 let div = document.createElement('div');
@@ -58,9 +61,6 @@ window.addEventListener('DOMContentLoaded', (e) => {
                         break;
                     }
                 }
-
-
-
 
                 div.innerHTML =
                     `
@@ -111,10 +111,10 @@ window.addEventListener('DOMContentLoaded', (e) => {
                     }
                 }
             });
-            
+
             plannedCounterField.textContent = `(${plannedCounter.toString()})`;
             inProgressCounterField.textContent = `(${inProgressCounter.toString()})`;
             liveCounterField.textContent = `(${liveCounter.toString()})`;
-            
+
         });
 });

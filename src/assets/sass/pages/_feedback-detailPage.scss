@@ -34,7 +34,18 @@ body {
     }
 
     &__content {
-        margin-left: 6.9rem;
+        margin-left: 7.2rem;
+        margin-top: 1rem;
+
+        p {
+            font-family: $font-jost-regular;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 15px;
+            line-height: 22px;
+
+            color: #647196;
+        }
     }
 
     &__add-comment {
@@ -56,9 +67,92 @@ body {
         line-height: 22px;
         color: #647196;
     }
+
+    &__reply-content {
+        margin-top: 1rem;
+        margin-left: 7.2rem;
+
+        p {
+            font-family: $font-jost-regular;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 15px;
+            line-height: 22px;
+            color: #647196;
+        }
+    }
+
+    &__input-reply-on-comment {
+        visibility: hidden;
+        position: absolute;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-top: 1.5rem;
+        margin-right: .5rem;
+        margin-left: 6.9rem;
+        height: 8rem;
+    }
+
+    &__input-reply {
+        visibility: hidden;
+        position: absolute;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-top: 1.5rem;
+        margin-right: .5rem;
+        margin-left: 11.9rem;
+        height: 8rem;
+    }
+
+    &_comment-reply {
+        margin-top: 2.5rem;
+        margin-left: 4.5rem;
+    }
+
+
+}
+
+.feedback-reply {
+
+    &__user-info {
+        display: flex;
+        align-items: center;
+    }
+
+    &__avatar {
+        width: 4rem;
+        height: 4rem;
+        background: black;
+        border-radius: 50%;
+    }
+
+    &__title {
+        margin-left: 3.2rem;
+
+        h3 {
+            font-family: $font-jost-bold;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 26px;
+            letter-spacing: -0.25px;
+            color: #3A4374;
+        }
+
+        p {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 20px;
+            color: #647196;
+        }
+    }
 }
 
 .feedback-comment {
+    margin-top: 2rem;
 
     &__user-info {
         display: flex;
@@ -79,5 +173,26 @@ body {
 
     &__title {
         margin-left: 3.2rem;
+
+        h3 {
+            font-family: $font-jost-bold;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 26px;
+            letter-spacing: -0.25px;
+            color: #3A4374;
+        }
+
     }
+}
+
+.reply-to {
+    font-family: $font-jost-bold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 22px;
+
+    color: #AD1FEA;
 }

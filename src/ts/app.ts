@@ -82,8 +82,12 @@ function render(categorySearch: string) {
 
 
                             let commLength = 0;
-                            if (item.comments) commLength = item.comments.length;
 
+
+                            if (item.comments) commLength += item.comments.length;
+                            item.comments?.forEach(repl => {
+                                if (repl.replies) commLength += repl.replies.length
+                            });
 
                             switch (categorySearch) {
                                 case 'All': {

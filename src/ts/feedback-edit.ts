@@ -3,11 +3,6 @@ import { productRequests } from './server-response-interface';
 import { getData } from './services/getData';
 
 
-// feedback-edit__name
-// title
-// state
-// detail
-
 const headerTitle = document.querySelector('.feedback-edit__name') as HTMLSpanElement;
 const inputTitle = document.querySelector('#title') as HTMLInputElement;
 const selectCategory = document.querySelector('#category') as HTMLSelectElement;

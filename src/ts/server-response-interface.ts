@@ -10,7 +10,18 @@ export interface productRequests {
                 image: string;
                 name: string;
                 username: string;
-            }
+            },
+            replies: [
+                {
+                    content: string,
+                    replyingTo: string,
+                    user: {
+                        image: string,
+                        name: string,
+                        username: string
+                    }
+                }
+            ] | null
         }
     ] | null;
     upvotes: number;
