@@ -122,10 +122,11 @@ body {
     }
 
     &__avatar {
-        width: 4rem;
-        height: 4rem;
-        background: black;
-        border-radius: 50%;
+        img {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+        }
     }
 
     &__title {
@@ -160,10 +161,12 @@ body {
     }
 
     &__avatar {
-        width: 4rem;
-        height: 4rem;
-        background: black;
-        border-radius: 50%;
+        img {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+        }
+
     }
 
     &__user-info {
@@ -195,4 +198,9 @@ body {
     line-height: 22px;
 
     color: #AD1FEA;
+}
+
+.show {
+    visibility: visible;
+    position: relative;
 }

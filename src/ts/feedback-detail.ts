@@ -3,6 +3,8 @@ import { productRequests } from './server-response-interface';
 import { getData } from './services/getData';
 
 
+
+
 const iconUp = require("../assets/images/shared/icon-arrow-up.svg") as string;
 const iconComment = require("../assets/images/shared/icon-comments.svg") as string;
 
@@ -13,8 +15,15 @@ const counterComments = document.querySelector('.feedback-detail-counter') as HT
 window.addEventListener('DOMContentLoaded', (e) => {
     const chosenFeedback = localStorage.getItem('chosenFeedback');
 
+    const imgs = require.context('../assets/images/user-images', false, /jpg$/);
+    imgs.keys().forEach((key) => {
+        imgs(key);
+    });
+
     getData<productRequests>(`http://localhost:3000/productRequests/${chosenFeedback}`)
         .then(Response => {
+
+
 
             let commLength = 0;
             if (Response.comments) commLength += Response.comments.length;
@@ -61,68 +70,78 @@ window.addEventListener('DOMContentLoaded', (e) => {
                         let singleComment = document.createElement('div');
                         singleComment.classList.add('feedback-comment');
                         singleComment.setAttribute('data-commentId', comment.id.toString());
-                        
+
                         singleComment.innerHTML = `
                                 <div class="feedback-comment__user-info">
                                     <div class="feedback-comment__avatar">
-                                       
+                                        <img src=${comment.user.image} alt="">
                                     </div>
                                     <div class="feedback-comment__title">
                                         <h3 class="heading-three">${comment.user.name}</h3>
                                         <p class="paragraph">@${comment.user.username}</p>
                                     </div>
-                                    <div class="feedback__btn-reply">Reply</div>
+                                    <div class="feedback__btn-reply" id ="reply-${comment.id}">Reply</div>
                                 </div>
                                 <div class="feedback-detail__content">
                                     <p class="paragraph">${comment.content}</p>
                                 </div>
-                                <div class="feedback-detail__input-reply-on-comment">
+                                <div class="feedback-detail__input-reply-on-comment" id="input-${comment.id}">
                                     <input type="text" class="input-reply-on-comment">
                                     <a href="#" class="btn btn__magenta">Post Reply</a>
                                 </div>
                             `;
+                            fieldComments.append(singleComment);
 
-                        fieldComments.append(singleComment);
+                            let currentReply = document.querySelector(`#reply-${comment.id}`) as HTMLDivElement;
+                            let currentInput = document.querySelector(`#input-${comment.id}`) as HTMLInputElement;
+                            
+
+                            currentReply.addEventListener('click', () => {
+                                currentInput.classList.toggle('show');
+                            });
+
+
+                        
                     } else {
 
                         let multiComment = document.createElement('div');
                         multiComment.classList.add('feedback-comment');
                         multiComment.setAttribute('data-commentId', comment.id.toString());
 
-                        
+
 
                         multiComment.innerHTML = `
                                 <div class="feedback-comment__user-info">
                                     <div class="feedback-comment__avatar">
-                                        
+                                        <img src=${comment.user.image} alt="">
                                     </div>
                                     <div class="feedback-comment__title">
                                         <h3 class="heading-three">${comment.user.name}</h3>
                                         <p class="paragraph">@${comment.user.username}</p>
                                     </div>
-                                    <div class="feedback__btn-reply">Reply</div>
+                                    <div class="feedback__btn-reply reply-${comment.id}">Reply</div>
                                 </div>
                                 <div class="feedback-detail__content">
                                     <p class="paragraph">${comment.content}</p>
                                 </div>
                             `;
-                        
+
                         if (comment.replies) {
                             comment.replies.forEach(reply => {
                                 let replyDiv = document.createElement('div');
                                 replyDiv.classList.add('feedback-detail_comment-reply');
 
-                                
+
                                 replyDiv.innerHTML = `
                                     <div class="feedback-reply__user-info">
                                         <div class="feedback-reply__avatar">
-                                            
+                                        <img src=${reply.user.image} alt="">
                                         </div>
                                         <div class="feedback-reply__title">
                                             <h3 class="heading-three">${reply.user.name}</h3>
                                             <p class="paragraph">@${reply.user.username}</p>
                                         </div>
-                                        <div class="feedback__btn-reply">Reply</div>
+                                        <div class="feedback__btn-reply reply-${comment.id}">Reply</div>
                                     </div>
                                     <div class="feedback-detail__reply-content">
                                         <p class="paragraph"><span class="reply-to"> @${reply.replyingTo}</span>  ${reply.content}</p>
@@ -132,12 +151,24 @@ window.addEventListener('DOMContentLoaded', (e) => {
                             });
                             let input = document.createElement('div');
                             input.classList.add('feedback-detail__input-reply');
+                            input.id = `input-${comment.id}`;
                             input.innerHTML = `
                                 <input type="text" class="input-reply">
                                 <a href="#" class="btn btn__magenta">Post Reply</a>
                             `;
                             multiComment.append(input);
                             fieldComments.append(multiComment);
+
+                            let currentReply = document.querySelectorAll(`.reply-${comment.id}`);
+                            let currentInput = document.querySelector(`#input-${comment.id}`) as HTMLInputElement;
+                            
+                            currentReply.forEach(item => {
+                                item.addEventListener('click', () => {
+                                    currentInput.classList.toggle('show');
+                                });
+                            });
+
+                            
                         }
 
 

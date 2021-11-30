@@ -8,12 +8,12 @@
     "build": "cross-env NODE_ENV=production webpack --mode production",
     "watch": "cross-env NODE_ENV=development webpack --mode development --watch",
     "start": "concurrently --kill-others \"npx json-server data.json\" \"cross-env NODE_ENV=development webpack-dev-server --open\""
-   
   },
   "browserslist": "> 0.25%, not dead",
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/webpack-env": "^1.16.3",
     "clean-webpack-plugin": "^4.0.0",
     "concurrently": "^6.4.0",
     "cross-env": "^7.0.3",

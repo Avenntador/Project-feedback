@@ -134,10 +134,11 @@ function render(categorySearch: string) {
                             div.addEventListener('click', (e) => {
                                 let target = e.target as HTMLDivElement;
                                 let feedback = target.closest('.feedback');
-
-                                let chosenFeedback = feedback?.getAttribute('data-id');
-                                localStorage.setItem('chosenFeedback', chosenFeedback?.toString()!);
-                                window.location.assign('../feedback-detail.html');
+                                if (!target.classList.contains('feedback__raiting')) {
+                                    let chosenFeedback = feedback?.getAttribute('data-id');
+                                    localStorage.setItem('chosenFeedback', chosenFeedback?.toString()!);
+                                    window.location.assign('../feedback-detail.html');
+                                }
                             });
 
                             break;
