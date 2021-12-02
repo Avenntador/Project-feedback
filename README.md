@@ -18,7 +18,6 @@ This is a solution to the [Product feedback app challenge on Frontend Mentor](ht
 ## Overview
 
 ### The challenge
-![preview](https://user-images.githubusercontent.com/29005134/144379314-6ba5ad83-f544-405c-add8-b4e5ab59c8db.jpg)
 
 Users should be able to:
 
@@ -43,14 +42,29 @@ Users should be able to:
 
 ### Built with
 
-- Semantic HTML5 markup
-- CSS custom properties
+- HTML5 markup
+- CSS(SCSS preprocessor) custom properties
 - Flexbox
-- CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
+- Desktop-first workflow
+- TypeScript
+- Webpack
+
+### What I learned
+
+While developing this project, I learned how to create applications such as CRUD, and operate with the state of the application.
+
+### Continued development
+
+I want to pay more attention to the cleanliness, structure of the code, to make it more universal, readable and maintainable
 
 
+### Useful resources
 
+- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
+- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+
+
+## Author
+
+- Website - [Add your name here](https://www.your-site.com)
+- Twitter - [@yourusername](https://www.twitter.com/yourusername)
