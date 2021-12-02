@@ -21,7 +21,7 @@ This is a solution to the [Product feedback app challenge on Frontend Mentor](ht
 
 Users should be able to:
 
-- View the optimal layout for the app depending on their device's screen size -[x]
+- View the optimal layout for the app depending on their device's screen size :heavy_check_mark:
 - See hover states for all interactive elements on the page
 - Create, read, update, and delete product feedback requests
 - Receive form validations when trying to create/edit feedback requests
