@@ -73,6 +73,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
             .then(Response => {
                 if (Response.status == 200) {
                     window.location.assign('http://localhost:3100');
+                    
                 }
             })
 

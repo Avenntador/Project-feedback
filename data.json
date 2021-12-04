@@ -9,7 +9,7 @@
       "id": 1,
       "title": "Add tags for solutions",
       "category": "Enhancement",
-      "upvotes": 46,
+      "upvotes": 50,
       "status": "Suggestion",
       "description": "Easier to search for solutions based on a specific stack.",
       "comments": [
@@ -20,7 +20,18 @@
             "image": "/js/../assets/images/image-suzanne..jpg",
             "name": "Suzanne Chang",
             "username": "upbeat1811"
-          }
+          },
+          "replies": [
+            {
+              "content": " qq",
+              "replyingTo": "upbeat1811",
+              "user": {
+                "image": "/js/../assets/images/image-zena..jpg",
+                "name": "Zena Kelley",
+                "username": "velvetround"
+              }
+            }
+          ]
         },
         {
           "id": 2,
@@ -37,7 +48,7 @@
       "id": 2,
       "title": "Add a dark theme option",
       "category": "Feature",
-      "upvotes": 111,
+      "upvotes": 116,
       "status": "Suggestion",
       "description": "It would help people with light sensitivities and who prefer dark mode.",
       "comments": [
@@ -85,7 +96,7 @@
       "id": 3,
       "title": "Q&A within the challenge hubs",
       "category": "Feature",
-      "upvotes": 162,
+      "upvotes": 163,
       "status": "Suggestion",
       "description": "Challenge-specific Q&A would make for easy reference.",
       "comments": [
@@ -104,7 +115,7 @@
       "id": 4,
       "title": "Add image/video upload to feedback",
       "category": "Enhancement",
-      "upvotes": 127,
+      "upvotes": 128,
       "status": "Suggestion",
       "description": "Images and screencasts can enhance comments on solutions.",
       "comments": [
@@ -132,7 +143,7 @@
       "id": 5,
       "title": "Ability to follow others",
       "category": "Feature",
-      "upvotes": 90,
+      "upvotes": 91,
       "status": "Suggestion",
       "description": "Stay updated on comments and solutions other people post.",
       "comments": [
@@ -171,7 +182,7 @@
       "id": 6,
       "title": "Preview images not loading",
       "category": "Bug",
-      "upvotes": 225,
+      "upvotes": 226,
       "status": "Suggestion",
       "description": "Challenge preview images are missing when you apply a filter."
     },
@@ -179,7 +190,7 @@
       "id": 7,
       "title": "More comprehensive reportsKek",
       "category": "Enhancement",
-      "upvotes": 123,
+      "upvotes": 145,
       "status": "Live",
       "description": "It would be great to see a more detailed breakdown of solutions.",
       "comments": [
@@ -207,7 +218,7 @@
       "id": 8,
       "title": "Learning paths",
       "category": "Feature",
-      "upvotes": 28,
+      "upvotes": 65,
       "status": "Planned",
       "description": "Sequenced projects for different goals to help people improve.",
       "comments": [
@@ -226,8 +237,8 @@
       "id": 9,
       "title": "One-click portfolio generation",
       "category": "Feature",
-      "upvotes": 62,
-      "status": "In-progress",
+      "upvotes": 68,
+      "status": "Live",
       "description": "Add ability to create professional looking portfolio from profile.",
       "comments": [
         {
@@ -245,7 +256,7 @@
       "id": 10,
       "title": "Bookmark challenges",
       "category": "Feature",
-      "upvotes": 31,
+      "upvotes": 38,
       "status": "Planned",
       "description": "Be able to bookmark challenges to take later on.",
       "comments": [
@@ -264,15 +275,27 @@
       "id": 11,
       "title": "Animated solution screenshots",
       "category": "Bug",
-      "upvotes": 9,
+      "upvotes": 23,
       "status": "In-progress",
-      "description": "Screenshots of solutions with animations don’t display correctly."
+      "description": "Screenshots of solutions with animations don’t display correctly.",
+      "comments": [
+        {
+          "id": 16,
+          "content": "Testing",
+          "user": {
+            "image": "/js/../assets/images/image-zena..jpg",
+            "name": "Zena Kelley",
+            "username": "velvetround"
+          },
+          "replies": null
+        }
+      ]
     },
     {
       "id": 12,
       "title": "Add micro-interactions",
       "category": "Enhancement",
-      "upvotes": 71,
+      "upvotes": 73,
       "status": "Live",
       "description": "Small animations at specific points can add delight.",
       "comments": [
@@ -297,6 +320,76 @@
           ]
         }
       ]
+    },
+    {
+      "id": 13,
+      "title": "SUPER NEW",
+      "category": "Bug",
+      "upvotes": 56,
+      "status": "Suggestion",
+      "description": "TYT SUPER NEW FEEDBACK"
+    },
+    {
+      "id": 14,
+      "title": "Enchance roadmap please!!!!!!!!!!!!!",
+      "category": "UX",
+      "upvotes": 13,
+      "status": "Planned",
+      "description": " suka daisdjioa0sda[",
+      "comments": [
+        {
+          "id": 16,
+          "content": "keks",
+          "user": {
+            "image": "/js/../assets/images/image-zena..jpg",
+            "name": "Zena Kelley",
+            "username": "velvetround"
+          },
+          "replies": [
+            {
+              "content": " yep",
+              "replyingTo": "velvetround",
+              "user": {
+                "image": "/js/../assets/images/image-zena..jpg",
+                "name": "Zena Kelley",
+                "username": "velvetround"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "title": "asdasdas",
+      "category": "UI",
+      "upvotes": 5,
+      "status": "Suggestion",
+      "description": "dasdasd"
+    },
+    {
+      "id": 16,
+      "title": "kekekek",
+      "category": "UX",
+      "upvotes": 4,
+      "status": "Suggestion",
+      "description": "kekeke"
+    },
+    {
+      "id": 17,
+      "title": "Test",
+      "category": "UX",
+      "upvotes": 5,
+      "status": "Suggestion",
+      "description": "Test"
+    },
+    {
+      "id": 18,
+      "title": "TETSATasta",
+      "category": "UI",
+      "upvotes": 15,
+      "status": "Suggestion",
+      "description": "asdasdas"
     }
   ]
 }

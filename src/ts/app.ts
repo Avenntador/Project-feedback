@@ -8,11 +8,10 @@ import { renderCategory } from './renderCategory';
 
 const iconUp = require("../assets/images/shared/icon-arrow-up.svg") as string;
 const iconComment = require("../assets/images/shared/icon-comments.svg") as string;
-
+const imgNoFeebacks = require('../assets/images/No-feedback.png');
 
 let currentFeedbacksCounter = 0;
 const field = document.querySelector('.main-content__field')! as HTMLDivElement;
-const msgBox = document.querySelector('.message-box')! as HTMLDivElement;
 const suggestionCounterField = document.querySelector('.main-content__counter')! as HTMLSpanElement;
 const sidePlanned = document.querySelector('.sidebar__planned-counter') as HTMLSpanElement;
 const sideInProgress = document.querySelector('.sidebar__in-progress-counter') as HTMLSpanElement;
@@ -54,22 +53,56 @@ sidebarTags.addEventListener('click', (e) => {
 function render(categorySearch: string) {
     getData<Array<productRequests>>('http://localhost:3000/productRequests')
         .then(Response => {
-            if (Response.length > 0) {
+
+            let suggestionFeedbackLength = 0;
+            let suggestionCounter = 0;
+            let plannedCounter = 0;
+            let inProgressCounter = 0;
+            let liveCounter = 0;
+
+            Response.forEach(item => {
+
+                switch (item.status) {
+                    case 'Suggestion': {
+                        suggestionFeedbackLength++;
+                        break;
+                    }
+
+                    case 'Planned': {
+                        plannedCounter++;
+                        break;
+                    }
+
+                    case 'In-progress': {
+                        inProgressCounter++;
+                        break;
+                    }
+
+                    case 'Live': {
+                        liveCounter++;
+                        break;
+                    }
+                }
+            });
+
+            suggestionCounterField.textContent = suggestionCounter.toString();
+            sidePlanned.textContent = plannedCounter.toString();
+            sideInProgress.textContent = inProgressCounter.toString();
+            sideLive.textContent = liveCounter.toString();
+
+
+
+            if (suggestionFeedbackLength > 0) {
 
                 field.innerHTML = '';
                 field.style.background = 'none';
 
-                currentFeedbacksCounter = Response.length;
-
-                let suggestionCounter = 0;
-                let plannedCounter = 0;
-                let inProgressCounter = 0;
-                let liveCounter = 0;
-
-                // msgBox.style.visibility = 'hidden';
-
-
-                
+                currentFeedbacksCounter = Response[0].id;
+                Response.forEach(item => {
+                    if (item.id > currentFeedbacksCounter) {
+                        currentFeedbacksCounter = item.id;
+                    }
+                });
 
                 Response.forEach((item, i) => {
 
@@ -78,7 +111,6 @@ function render(categorySearch: string) {
                             currentMaxCommentId = comment.id.toString();
                         });
                     }
-
 
 
                     switch (item.status) {
@@ -155,30 +187,44 @@ function render(categorySearch: string) {
                             break;
                         }
 
-                        case 'Planned': {
-                            plannedCounter++;
-                            break;
-                        }
-
-                        case 'In-progress': {
-                            inProgressCounter++;
-                            break;
-                        }
-
-                        case 'Live': {
-                            liveCounter++;
-                            break;
-                        }
                     }
                 });
 
                 localStorage.setItem('currentMaxCommentId', currentMaxCommentId);
 
-                suggestionCounterField.textContent = suggestionCounter.toString();
-                sidePlanned.textContent = plannedCounter.toString();
-                sideInProgress.textContent = inProgressCounter.toString();
-                sideLive.textContent = liveCounter.toString();
+
+            } else {
+
+                currentFeedbacksCounter = Response[0].id;
+                Response.forEach(item => {
+                    if (item.id > currentFeedbacksCounter) {
+                        currentFeedbacksCounter = item.id;
+                    }
+                });
+
+                localStorage.setItem('currentFeedbacksCounter', currentFeedbacksCounter.toString());
+
+
+                let msgBoxDiv = document.createElement('div');
+                msgBoxDiv.classList.add('message-box');
+                msgBoxDiv.innerHTML = `
+                    <div class="message-box__logo"><img class="main-message-img" src=${imgNoFeebacks} alt="No feedback's yet"></div>
+                    <div class="message-box__tittle">
+                    <h1 class="heading-one">There is no feedback yet.</h1>
+                    </div>
+                    <div class="message-box__text">
+                    <p class="paragraph">Got a suggestion? Found a bug that needs to be squashed? We love hearing about new ideas to improve our app.</p>
+                    </div>
+                    <div class="message-box__button">
+                    <a href="./addfeedback.html" class="btn">Add feedback</a>
+                    </div>
+                `;
+
+                field.style.background = 'white';
+                field.append(msgBoxDiv);
             }
+
+
 
             localStorage.setItem('currentFeedbacksCounter', currentFeedbacksCounter.toString());
 

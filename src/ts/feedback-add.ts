@@ -49,7 +49,7 @@ submitBtn.addEventListener('click', (e) => {
     feedback.category = selectCategory.value;
     feedback.description = inputDetail.value;
     
-    
+    console.log(feedback);
     addFeedback(feedback)
         .then(Response => {
             if (Response.status == 201) {
