@@ -21,6 +21,9 @@ const sideLive = document.querySelector('.sidebar__live-counter') as HTMLSpanEle
 const sidebarTags = document.querySelector('.sidebar__tags') as HTMLDivElement;
 let currenCategorySearch: string;
 
+let currentMaxCommentId: string;
+
+
 let selectedTag: Element;
 
 function highlightTag(tag: Element) {
@@ -66,9 +69,17 @@ function render(categorySearch: string) {
                 // msgBox.style.visibility = 'hidden';
 
 
-
+                
 
                 Response.forEach((item, i) => {
+
+                    if (item.comments) {
+                        item.comments.forEach(comment => {
+                            currentMaxCommentId = comment.id.toString();
+                        });
+                    }
+
+
 
                     switch (item.status) {
                         case 'Suggestion': {
@@ -160,6 +171,8 @@ function render(categorySearch: string) {
                         }
                     }
                 });
+
+                localStorage.setItem('currentMaxCommentId', currentMaxCommentId);
 
                 suggestionCounterField.textContent = suggestionCounter.toString();
                 sidePlanned.textContent = plannedCounter.toString();

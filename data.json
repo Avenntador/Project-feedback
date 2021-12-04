@@ -9,7 +9,7 @@
       "id": 1,
       "title": "Add tags for solutions",
       "category": "Enhancement",
-      "upvotes": 45,
+      "upvotes": 46,
       "status": "Suggestion",
       "description": "Easier to search for solutions based on a specific stack.",
       "comments": [
@@ -85,7 +85,7 @@
       "id": 3,
       "title": "Q&A within the challenge hubs",
       "category": "Feature",
-      "upvotes": 161,
+      "upvotes": 162,
       "status": "Suggestion",
       "description": "Challenge-specific Q&A would make for easy reference.",
       "comments": [
@@ -227,7 +227,7 @@
       "title": "One-click portfolio generation",
       "category": "Feature",
       "upvotes": 62,
-      "status": "Planned",
+      "status": "In-progress",
       "description": "Add ability to create professional looking portfolio from profile.",
       "comments": [
         {
@@ -297,46 +297,6 @@
           ]
         }
       ]
-    },
-    {
-      "id": 13,
-      "title": "SUPER NEW",
-      "category": "Bug",
-      "upvotes": 54,
-      "status": "Suggestion",
-      "description": "TYT SUPER NEW FEEDBACK"
-    },
-    {
-      "id": 14,
-      "title": "Enchance roadmap please",
-      "category": "Bug",
-      "upvotes": 3,
-      "status": "Live",
-      "description": "Pidori suka"
-    },
-    {
-      "id": 15,
-      "title": "asdasdas",
-      "category": "UI",
-      "upvotes": 0,
-      "status": "Suggestion",
-      "description": "dasdasd"
-    },
-    {
-      "id": 16,
-      "title": "kekekek",
-      "category": "UX",
-      "upvotes": 4,
-      "status": "Suggestion",
-      "description": "kekeke"
-    },
-    {
-      "id": 17,
-      "title": "Test",
-      "category": "UX",
-      "upvotes": 5,
-      "status": "Suggestion",
-      "description": "Test"
     }
   ]
 }

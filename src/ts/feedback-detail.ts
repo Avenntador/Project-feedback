@@ -1,16 +1,15 @@
 import '../assets/sass/feedback-detail.scss';
 import { productRequests } from './server-response-interface';
 import { getData } from './services/getData';
-
-
+import { Replies } from './server-response-interface';
+import { Comments } from './server-response-interface';
+import { currentUser } from './server-response-interface';
 
 
 const iconUp = require("../assets/images/shared/icon-arrow-up.svg") as string;
 const iconComment = require("../assets/images/shared/icon-comments.svg") as string;
 
-const fieldFeedback = document.querySelector('.nav') as HTMLDivElement;
-const fieldComments = document.querySelector('.feedback-detail__total-comments') as HTMLDivElement;
-const counterComments = document.querySelector('.feedback-detail-counter') as HTMLSpanElement;
+const mainContainer = document.querySelector('.feedback-detail__container') as HTMLDivElement;
 
 window.addEventListener('DOMContentLoaded', (e) => {
     const chosenFeedback = localStorage.getItem('chosenFeedback');
@@ -20,25 +19,138 @@ window.addEventListener('DOMContentLoaded', (e) => {
         imgs(key);
     });
 
-    getData<productRequests>(`http://localhost:3000/productRequests/${chosenFeedback}`)
-        .then(Response => {
+    function render() {
+        getData<productRequests>(`http://localhost:3000/productRequests/${chosenFeedback}`)
+            .then(Response => {
+
+                mainContainer.innerHTML = '';
+
+                let newCommentsArr: Comments[];
+
+                if (Response.comments) {
+                    newCommentsArr =  JSON.parse(JSON.stringify(Response.comments));
+                } else {
+                    newCommentsArr = [];
+                }
+
+                const nav = document.createElement('div');
+                nav.classList.add('nav');
+
+                nav.innerHTML = `
+                    <a href="./index.html" class="link"> &nbsp; Go back</a>
+                    <a href="./feedback-edit.html" class="btn btn__blue">Edit feedback</a>
+                `;
+                mainContainer.insertAdjacentElement('afterbegin', nav);
+
+
+                const fieldFeedback = document.querySelector('.nav') as HTMLDivElement;
+
+
+                const commentsDetail = document.createElement('div') as HTMLDivElement;
+                commentsDetail.classList.add('feedback-detail__comments');
+                commentsDetail.classList.add('mt-light');
+
+                commentsDetail.innerHTML = `
+                    <div class="feedback-detail__total-comments"><span class="feedback-detail-counter">4</span>&nbsp; Comments</div>
+                `;
+
+                nav.insertAdjacentElement('afterend', commentsDetail);
+
+
+                const fieldComments = document.querySelector('.feedback-detail__total-comments') as HTMLDivElement;
+                const counterComments = document.querySelector('.feedback-detail-counter') as HTMLSpanElement;
 
 
 
-            let commLength = 0;
-            if (Response.comments) commLength += Response.comments.length;
-            Response.comments?.forEach(repl => {
-                if (repl.replies) commLength += repl.replies.length
-            });
+                const addNewSingleCommentInput = document.createElement('div');
+                addNewSingleCommentInput.classList.add('feedback-detail__add-comment');
+                addNewSingleCommentInput.classList.add('mt-light');
 
-            counterComments.textContent = commLength.toString();
+                addNewSingleCommentInput.innerHTML = `
+                    <h1 class="heading-one">Add comment</h1>
+                    <input type="text" class="input input__add" id="addNewSingleCommentInput" placeholder="Type your comment here">
+                    <div class="feedback-detail__input-info mt-hard">
+                    <div class="feedback-detail__character-left">
+                        250 Character left
+                    </div>
+                    <div class="feedback-detail__btn ">
+                        <a href="#" class="btn btn__magenta" id="addNewSingleComment">Post Comment</a>
+                    </div>
+                    </div>
+                `;
+
+                mainContainer.insertAdjacentElement('beforeend', addNewSingleCommentInput);
+              
+                const submitNewSingleComment = document.querySelector('#addNewSingleComment') as HTMLLinkElement;
+                const newSingleCommentInput = document.querySelector('#addNewSingleCommentInput') as HTMLInputElement;
+
+                submitNewSingleComment.addEventListener('click', (e) => {
+                    e.preventDefault();
+
+                    let currentMaxCommentId = parseInt(localStorage.getItem('currentMaxCommentId')!);
+                    currentMaxCommentId++;
+                    localStorage.setItem('currentMaxCommentId', currentMaxCommentId.toString());
+
+                    let newComment: Comments = {
+                        id: currentMaxCommentId,
+                        content: newSingleCommentInput.value,
+                        user: {
+                            image: currentUser.image,
+                            name: currentUser.name,
+                            username: currentUser.username
+                        },
+                        replies: null
+                    }
+
+                    
+                        newCommentsArr.push(newComment);
+
+                        fetch(`http://localhost:3000/productRequests/${chosenFeedback}`, {
+                        method: 'PATCH',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(
+                            {
+                                "comments": newCommentsArr
+                            }
+                        )
+                    })
+                        .then(Response => {
+                            if (Response.status == 200) {
+                                render();
+                            }
+
+                        });
+                    
+                        
+                    
+                });
 
 
-            const feedbackElem = document.createElement('div');
-            feedbackElem.classList.add('feedback');
-            feedbackElem.classList.add('mt-light');
 
-            feedbackElem.innerHTML = `
+
+
+
+
+                let currentUser: currentUser = JSON.parse(localStorage.getItem('currentUser')!);
+                let commLength = 0;
+                if (Response.comments) commLength += Response.comments.length;
+                Response.comments?.forEach(repl => {
+                    if (repl.replies) commLength += repl.replies.length
+                });
+
+
+
+
+                counterComments.textContent = commLength.toString();
+
+
+                const feedbackElem = document.createElement('div');
+                feedbackElem.classList.add('feedback');
+                feedbackElem.classList.add('mt-light');
+
+                feedbackElem.innerHTML = `
                 <div class="feedback__raiting flex-center-column">
                         <img inline src="${iconUp}" alt="">
                         ${Response.upvotes}
@@ -55,23 +167,28 @@ window.addEventListener('DOMContentLoaded', (e) => {
                         <a href="#" class="tag">${Response.category}</a>
                     </div>`;
 
-            fieldFeedback.insertAdjacentElement('afterend', feedbackElem);
+                fieldFeedback.insertAdjacentElement('afterend', feedbackElem);
 
-            const feedbackComments = document.createElement('div');
 
-            feedbackComments.classList.add('.feedback-detail__comments');
-            feedbackComments.classList.add('.mt-light');
+                if (Response.comments) {
 
-            if (Response.comments) {
+                    
+                    
+                    let replies: any[] = [];
+                    let reply: Replies;
+                    let replyTo: string;
+                    let replyContent: string;
+                    let currentComment: number;
 
-                Response.comments.forEach(comment => {
 
-                    if (!comment.replies) {
-                        let singleComment = document.createElement('div');
-                        singleComment.classList.add('feedback-comment');
-                        singleComment.setAttribute('data-commentId', comment.id.toString());
+                    Response.comments.forEach((comment, i) => {
 
-                        singleComment.innerHTML = `
+                        if (!comment.replies) {
+                            let singleComment = document.createElement('div');
+                            singleComment.classList.add('feedback-comment');
+                            singleComment.setAttribute('data-commentId', comment.id.toString());
+
+                            singleComment.innerHTML = `
                                 <div class="feedback-comment__user-info">
                                     <div class="feedback-comment__avatar">
                                         <img src=${comment.user.image} alt="">
@@ -87,30 +204,82 @@ window.addEventListener('DOMContentLoaded', (e) => {
                                 </div>
                                 <div class="feedback-detail__input-reply-on-comment" id="input-${comment.id}">
                                     <input type="text" class="input-reply-on-comment">
-                                    <a href="#" class="btn btn__magenta">Post Reply</a>
+                                    <a href="#" id="submitSingleComment${comment.id}" class="btn btn__magenta">Post Reply</a>
                                 </div>
                             `;
                             fieldComments.append(singleComment);
 
                             let currentReply = document.querySelector(`#reply-${comment.id}`) as HTMLDivElement;
                             let currentInput = document.querySelector(`#input-${comment.id}`) as HTMLInputElement;
-                            
+                            let input = currentInput.querySelector('input') as HTMLInputElement;
 
-                            currentReply.addEventListener('click', () => {
+
+
+                            currentReply.addEventListener('click', (e) => {
+                                let target = e.target as HTMLElement;
+                                replyTo = target.previousElementSibling?.querySelector('p')?.textContent!;
+                                replyTo = replyTo.slice(1, replyTo.length);
+                                input.value = '';
                                 currentInput.classList.toggle('show');
+                            })
+
+                            let submitSingleComment = document.querySelector(`#submitSingleComment${comment.id}`) as HTMLLinkElement;
+
+                            submitSingleComment.addEventListener('click', (e) => {
+                                e.preventDefault();
+
+                                let target = e.target as HTMLElement;
+
+                                currentComment = parseInt(target.closest('.feedback-comment')?.getAttribute('data-commentId')!);
+                                console.log(`submiting ${currentComment} comment`);
+                                replyContent = ` ${input.value}`;
+                                reply = {
+                                    content: replyContent,
+                                    replyingTo: replyTo,
+                                    user: {
+                                        image: currentUser.image,
+                                        name: currentUser.name,
+                                        username: currentUser.username
+                                    }
+                                }
+                                replies.push(reply)
+
+
+                                for (let i = 0; i < newCommentsArr.length; i++) {
+                                    if (currentComment == newCommentsArr[i].id) {
+                                        newCommentsArr[i].replies = replies;
+                                        break;
+                                    }
+                                }
+
+
+                                fetch(`http://localhost:3000/productRequests/${chosenFeedback}`, {
+                                    method: 'PATCH',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify(
+                                        {
+                                            "comments": newCommentsArr
+                                        }
+                                    )
+                                })
+                                    .then(Response => {
+                                        if (Response.status == 200) {
+                                            render();
+                                        }
+
+                                    });
+
                             });
 
+                        } else {
 
-                        
-                    } else {
+                            let multiComment = document.createElement('div');
+                            multiComment.classList.add('feedback-comment');
+                            multiComment.setAttribute('data-commentId', comment.id.toString());
 
-                        let multiComment = document.createElement('div');
-                        multiComment.classList.add('feedback-comment');
-                        multiComment.setAttribute('data-commentId', comment.id.toString());
-
-
-
-                        multiComment.innerHTML = `
+                            multiComment.innerHTML = `
                                 <div class="feedback-comment__user-info">
                                     <div class="feedback-comment__avatar">
                                         <img src=${comment.user.image} alt="">
@@ -126,7 +295,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
                                 </div>
                             `;
 
-                        if (comment.replies) {
+
                             comment.replies.forEach(reply => {
                                 let replyDiv = document.createElement('div');
                                 replyDiv.classList.add('feedback-detail_comment-reply');
@@ -149,43 +318,92 @@ window.addEventListener('DOMContentLoaded', (e) => {
                                 `;
                                 multiComment.append(replyDiv);
                             });
+
                             let input = document.createElement('div');
                             input.classList.add('feedback-detail__input-reply');
                             input.id = `input-${comment.id}`;
                             input.innerHTML = `
-                                <input type="text" class="input-reply">
-                                <a href="#" class="btn btn__magenta">Post Reply</a>
-                            `;
+                                    <input type="text" class="input-reply">
+                                    <a href="#" class="btn btn__magenta " id="submitMultiComment${comment.id}">Post Reply</a>
+                                `;
                             multiComment.append(input);
                             fieldComments.append(multiComment);
 
                             let currentReply = document.querySelectorAll(`.reply-${comment.id}`);
                             let currentInput = document.querySelector(`#input-${comment.id}`) as HTMLInputElement;
-                            
+                            let inputMulti = currentInput.querySelector('.input-reply') as HTMLInputElement;
+
+
                             currentReply.forEach(item => {
-                                item.addEventListener('click', () => {
+
+                                item.addEventListener('click', (e) => {
+                                    e.preventDefault();
+                                    let target = e.target as HTMLElement;
+
+                                    replyTo = target.previousElementSibling?.querySelector('p')?.textContent!;
+                                    replyTo = replyTo.slice(1, replyTo.length);
+
+                                    inputMulti.value = '';
                                     currentInput.classList.toggle('show');
                                 });
                             });
 
-                            
+                            let submitMultiComment = document.querySelector(`#submitMultiComment${comment.id}`) as HTMLLinkElement;
+
+                            submitMultiComment.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                let target = e.target as HTMLElement;
+
+                                currentComment = parseInt(target.closest('.feedback-comment')?.getAttribute('data-commentId')!);
+                                console.log(`submiting ${currentComment} comment`);
+
+                                replyContent = `${inputMulti.value}`;
+                                reply = {
+                                    content: replyContent,
+                                    replyingTo: replyTo,
+                                    user: {
+                                        image: currentUser.image,
+                                        name: currentUser.name,
+                                        username: currentUser.username
+                                    }
+                                }
+                                console.log(reply);
+
+                                for (let i = 0; i < newCommentsArr.length; i++) {
+                                    if (currentComment == newCommentsArr[i].id) {
+                                        newCommentsArr[i].replies!.push(reply);
+                                        break;
+                                    }
+                                }
+
+                                fetch(`http://localhost:3000/productRequests/${chosenFeedback}`, {
+                                    method: 'PATCH',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify(
+                                        {
+                                            "comments": newCommentsArr
+                                        }
+                                    )
+                                })
+                                    .then(Response => {
+                                        if (Response.status == 200) {
+                                            render();
+                                        }
+                                    });
+                            });
                         }
 
-
-                    }
-
+                    });
 
 
-                });
+                   
+                } 
+            });
 
+    }
 
-
-
-
-
-            }
-
-
-        });
+    render();
 
 });

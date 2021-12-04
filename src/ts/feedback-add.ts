@@ -53,7 +53,8 @@ submitBtn.addEventListener('click', (e) => {
     addFeedback(feedback)
         .then(Response => {
             if (Response.status == 201) {
-                window.location.assign('http://localhost:3100');
+                // window.location.assign('http://localhost:3100');
+                window.history.back();
             }
             
         })

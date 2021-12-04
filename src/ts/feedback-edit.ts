@@ -10,6 +10,7 @@ const selectState = document.querySelector('#state') as HTMLSelectElement;
 const inputDetail = document.querySelector('#detail') as HTMLInputElement;
 
 const submitBtn = document.querySelector('#submit');
+const deleteBtn = document.querySelector('#delete');
 
 window.addEventListener('DOMContentLoaded', (e) => {
 
@@ -55,13 +56,25 @@ window.addEventListener('DOMContentLoaded', (e) => {
                     }
                 )
             })
-            .then(Response => Response.json())
             .then(Response => {
-                console.log(Response);
+                if (Response.status == 200) {
+                    window.location.assign('http://localhost:3100');
+                }
             })
-            
-           
+        });
 
+        deleteBtn?.addEventListener('click', (e) => {
+            e.preventDefault();
+
+
+            fetch(`http://localhost:3000/productRequests/${currentFeedbackId}`, {
+                method: 'DELETE',
+            })
+            .then(Response => {
+                if (Response.status == 200) {
+                    window.location.assign('http://localhost:3100');
+                }
+            })
 
         });
 
