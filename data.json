@@ -48,7 +48,7 @@
       "id": 2,
       "title": "Add a dark theme option",
       "category": "Feature",
-      "upvotes": 116,
+      "upvotes": 135,
       "status": "Suggestion",
       "description": "It would help people with light sensitivities and who prefer dark mode.",
       "comments": [
@@ -115,7 +115,7 @@
       "id": 4,
       "title": "Add image/video upload to feedback",
       "category": "Enhancement",
-      "upvotes": 128,
+      "upvotes": 138,
       "status": "Suggestion",
       "description": "Images and screencasts can enhance comments on solutions.",
       "comments": [
@@ -277,26 +277,14 @@
       "category": "Bug",
       "upvotes": 23,
       "status": "In-progress",
-      "description": "Screenshots of solutions with animations don’t display correctly.",
-      "comments": [
-        {
-          "id": 16,
-          "content": "Testing",
-          "user": {
-            "image": "/js/../assets/images/image-zena..jpg",
-            "name": "Zena Kelley",
-            "username": "velvetround"
-          },
-          "replies": null
-        }
-      ]
+      "description": "Screenshots of solutions with animations don’t display correctly."
     },
     {
       "id": 12,
       "title": "Add micro-interactions",
       "category": "Enhancement",
       "upvotes": 73,
-      "status": "Live",
+      "status": "Planned",
       "description": "Small animations at specific points can add delight.",
       "comments": [
         {
@@ -333,37 +321,15 @@
       "id": 14,
       "title": "Enchance roadmap please!!!!!!!!!!!!!",
       "category": "UX",
-      "upvotes": 13,
-      "status": "Planned",
-      "description": " suka daisdjioa0sda[",
-      "comments": [
-        {
-          "id": 16,
-          "content": "keks",
-          "user": {
-            "image": "/js/../assets/images/image-zena..jpg",
-            "name": "Zena Kelley",
-            "username": "velvetround"
-          },
-          "replies": [
-            {
-              "content": " yep",
-              "replyingTo": "velvetround",
-              "user": {
-                "image": "/js/../assets/images/image-zena..jpg",
-                "name": "Zena Kelley",
-                "username": "velvetround"
-              }
-            }
-          ]
-        }
-      ]
+      "upvotes": 12,
+      "status": "In-progress",
+      "description": "Pidori suka daisdjioa0sda["
     },
     {
       "id": 15,
       "title": "asdasdas",
       "category": "UI",
-      "upvotes": 5,
+      "upvotes": 6,
       "status": "Suggestion",
       "description": "dasdasd"
     },
@@ -371,7 +337,7 @@
       "id": 16,
       "title": "kekekek",
       "category": "UX",
-      "upvotes": 4,
+      "upvotes": 6,
       "status": "Suggestion",
       "description": "kekeke"
     },
@@ -379,7 +345,7 @@
       "id": 17,
       "title": "Test",
       "category": "UX",
-      "upvotes": 5,
+      "upvotes": 7,
       "status": "Suggestion",
       "description": "Test"
     },
@@ -390,6 +356,14 @@
       "upvotes": 15,
       "status": "Suggestion",
       "description": "asdasdas"
+    },
+    {
+      "id": 19,
+      "title": "666666666",
+      "category": "Feature",
+      "upvotes": 6,
+      "status": "Suggestion",
+      "description": "66666666"
     }
   ]
 }

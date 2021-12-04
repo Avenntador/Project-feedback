@@ -6,6 +6,11 @@ import { getData } from './services/getData';
 import { renderCategory } from './renderCategory';
 
 
+import { sortMostUpvotes } from './sort';
+import { sortLeastUpvotes } from './sort';
+import { sortMostComments } from './sort';
+import { sortLeastComments } from './sort';
+
 const iconUp = require("../assets/images/shared/icon-arrow-up.svg") as string;
 const iconComment = require("../assets/images/shared/icon-comments.svg") as string;
 const imgNoFeebacks = require('../assets/images/No-feedback.png');
@@ -17,9 +22,12 @@ const sidePlanned = document.querySelector('.sidebar__planned-counter') as HTMLS
 const sideInProgress = document.querySelector('.sidebar__in-progress-counter') as HTMLSpanElement;
 const sideLive = document.querySelector('.sidebar__live-counter') as HTMLSpanElement;
 
+const sortTitle = document.querySelector('#sort') as HTMLSpanElement;
 const sidebarTags = document.querySelector('.sidebar__tags') as HTMLDivElement;
-let currenCategorySearch: string;
 
+let currentCategorySearch: string;
+let currentCommentOrUpvotesSearch: string;
+let sortSelect = document.querySelector('.main-content__select') as HTMLSelectElement;
 let currentMaxCommentId: string;
 
 
@@ -40,31 +48,62 @@ sidebarTags.addEventListener('click', (e) => {
 
     if (target.classList.contains('tag')) {
         e.preventDefault();
-        currenCategorySearch = target.textContent!;
+        currentCategorySearch = target.textContent!;
         highlightTag(target);
-        localStorage.setItem('currentCategorySearch', currenCategorySearch);
-        render(currenCategorySearch);
+        localStorage.setItem('currentCategorySearch', currentCategorySearch);
+        render(currentCategorySearch, currentCommentOrUpvotesSearch);
     }
 });
 
+let lastSelect: HTMLOptionElement;
+
+function removeSelected(select: HTMLOptionElement) {
+    if (lastSelect) {
+        lastSelect.removeAttribute('selected');
+    }
+    lastSelect = select;
+    lastSelect.setAttribute('selected', '');
+}
 
 
 
-function render(categorySearch: string) {
+
+
+function render(categorySearch: string, sortOrder: string) {
+
+    let sortQueries: any = {
+        "Most upvotes": sortMostUpvotes,
+        "Least upvotes": sortLeastUpvotes,
+        "Most comments": sortMostComments,
+        "Least comments": sortLeastComments
+    }
+
+   let sortFunction: any;
+
+    for (let key in sortQueries) {
+        if (sortOrder == key) {
+            sortFunction = sortQueries[key];
+        }
+    }
+    
+    sortTitle.textContent = sortOrder;
+
+
     getData<Array<productRequests>>('http://localhost:3000/productRequests')
         .then(Response => {
 
-            let suggestionFeedbackLength = 0;
             let suggestionCounter = 0;
             let plannedCounter = 0;
             let inProgressCounter = 0;
             let liveCounter = 0;
+            let sortedArr: any[] = Response.sort(sortFunction);
 
-            Response.forEach(item => {
+        
+            sortedArr.forEach(item => {
 
                 switch (item.status) {
                     case 'Suggestion': {
-                        suggestionFeedbackLength++;
+                        suggestionCounter++;
                         break;
                     }
 
@@ -92,7 +131,7 @@ function render(categorySearch: string) {
 
 
 
-            if (suggestionFeedbackLength > 0) {
+            if (suggestionCounter > 0) {
 
                 field.innerHTML = '';
                 field.style.background = 'none';
@@ -247,7 +286,7 @@ function render(categorySearch: string) {
                             upvoteFeedback(feedbackId!, +currentUpvote)
                                 .then((Response) => {
                                     if (Response.status == 200) {
-                                        render(categorySearch);
+                                        render(categorySearch, sortOrder);
                                     }
                                 })
                         }
@@ -257,11 +296,13 @@ function render(categorySearch: string) {
         });
 }
 
+
+
 window.addEventListener('DOMContentLoaded', (e) => {
 
     if (!localStorage.getItem('currentCategorySearch')) {
-        currenCategorySearch = 'All';
-        localStorage.setItem('currentCategorySearch', currenCategorySearch);
+        currentCategorySearch = 'All';
+        localStorage.setItem('currentCategorySearch', currentCategorySearch);
     }
 
     Array.from(sidebarTags.children).forEach(item => {
@@ -275,9 +316,40 @@ window.addEventListener('DOMContentLoaded', (e) => {
             localStorage.setItem('currentUser', JSON.stringify(Response));
         });
 
-    currenCategorySearch = localStorage.getItem('currentCategorySearch')!;
+    currentCategorySearch = localStorage.getItem('currentCategorySearch')!;
 
-    render(currenCategorySearch);
+
+    if (!localStorage.getItem('currentCommentOrUpvotesSearch')) {
+        currentCommentOrUpvotesSearch = sortSelect.options[0].value;
+        localStorage.setItem('currentCommentOrUpvotesSearch', currentCommentOrUpvotesSearch)!;
+    }
+
+    currentCommentOrUpvotesSearch = localStorage.getItem('currentCommentOrUpvotesSearch')!;
+
+    for (let i = 0; i < sortSelect.length; i++) {
+        if (currentCommentOrUpvotesSearch === sortSelect.options[i].value) {
+            removeSelected(sortSelect.options[i]);
+        }
+    }
+   
+
+    sortSelect.addEventListener('change', (e) => {
+        let target = e.target as HTMLOptionElement;
+        
+        currentCommentOrUpvotesSearch = target.value;
+        for (let i = 0; i < sortSelect.length; i++) {
+            if (currentCommentOrUpvotesSearch === sortSelect.options[i].value) {
+                removeSelected(sortSelect.options[i]);
+            }
+        }
+        localStorage.setItem('currentCommentOrUpvotesSearch', currentCommentOrUpvotesSearch)!;
+    
+        render(currentCategorySearch, currentCommentOrUpvotesSearch);
+    });
+
+
+
+    render(currentCategorySearch, currentCommentOrUpvotesSearch);
 
 });
 
