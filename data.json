@@ -48,7 +48,7 @@
       "id": 2,
       "title": "Add a dark theme option",
       "category": "Feature",
-      "upvotes": 135,
+      "upvotes": 137,
       "status": "Suggestion",
       "description": "It would help people with light sensitivities and who prefer dark mode.",
       "comments": [
@@ -96,7 +96,7 @@
       "id": 3,
       "title": "Q&A within the challenge hubs",
       "category": "Feature",
-      "upvotes": 163,
+      "upvotes": 165,
       "status": "Suggestion",
       "description": "Challenge-specific Q&A would make for easy reference.",
       "comments": [
@@ -107,7 +107,38 @@
             "image": "/js/../assets/images/image-george..jpg",
             "name": "George Partridge",
             "username": "soccerviewer8"
-          }
+          },
+          "replies": [
+            {
+              "content": " qqqqq",
+              "replyingTo": "soccerviewer8",
+              "user": {
+                "image": "/js/../assets/images/image-zena..jpg",
+                "name": "Zena Kelley",
+                "username": "velvetround"
+              }
+            }
+          ]
+        },
+        {
+          "id": 17,
+          "content": "qweqw",
+          "user": {
+            "image": "/js/../assets/images/image-zena..jpg",
+            "name": "Zena Kelley",
+            "username": "velvetround"
+          },
+          "replies": [
+            {
+              "content": " wwww",
+              "replyingTo": "velvetround",
+              "user": {
+                "image": "/js/../assets/images/image-zena..jpg",
+                "name": "Zena Kelley",
+                "username": "velvetround"
+              }
+            }
+          ]
         }
       ]
     },
@@ -115,7 +146,7 @@
       "id": 4,
       "title": "Add image/video upload to feedback",
       "category": "Enhancement",
-      "upvotes": 138,
+      "upvotes": 139,
       "status": "Suggestion",
       "description": "Images and screencasts can enhance comments on solutions.",
       "comments": [
@@ -143,7 +174,7 @@
       "id": 5,
       "title": "Ability to follow others",
       "category": "Feature",
-      "upvotes": 91,
+      "upvotes": 92,
       "status": "Suggestion",
       "description": "Stay updated on comments and solutions other people post.",
       "comments": [
@@ -182,9 +213,31 @@
       "id": 6,
       "title": "Preview images not loading",
       "category": "Bug",
-      "upvotes": 226,
+      "upvotes": 228,
       "status": "Suggestion",
-      "description": "Challenge preview images are missing when you apply a filter."
+      "description": "Challenge preview images are missing when you apply a filter.",
+      "comments": [
+        {
+          "id": 15,
+          "content": "qqqqqqq",
+          "user": {
+            "image": "/js/../assets/images/image-zena..jpg",
+            "name": "Zena Kelley",
+            "username": "velvetround"
+          },
+          "replies": [
+            {
+              "content": " wwwwww",
+              "replyingTo": "velvetround",
+              "user": {
+                "image": "/js/../assets/images/image-zena..jpg",
+                "name": "Zena Kelley",
+                "username": "velvetround"
+              }
+            }
+          ]
+        }
+      ]
     },
     {
       "id": 7,
@@ -275,7 +328,7 @@
       "id": 11,
       "title": "Animated solution screenshots",
       "category": "Bug",
-      "upvotes": 23,
+      "upvotes": 24,
       "status": "In-progress",
       "description": "Screenshots of solutions with animations don’t display correctly."
     },
@@ -321,49 +374,29 @@
       "id": 14,
       "title": "Enchance roadmap please!!!!!!!!!!!!!",
       "category": "UX",
-      "upvotes": 12,
+      "upvotes": 14,
       "status": "In-progress",
-      "description": "Pidori suka daisdjioa0sda["
+      "description": "suka daisdjioa0sda[",
+      "comments": [
+        {
+          "id": 16,
+          "content": "111",
+          "user": {
+            "image": "/js/../assets/images/image-zena..jpg",
+            "name": "Zena Kelley",
+            "username": "velvetround"
+          },
+          "replies": null
+        }
+      ]
     },
     {
       "id": 15,
-      "title": "asdasdas",
-      "category": "UI",
-      "upvotes": 6,
-      "status": "Suggestion",
-      "description": "dasdasd"
-    },
-    {
-      "id": 16,
-      "title": "kekekek",
-      "category": "UX",
-      "upvotes": 6,
-      "status": "Suggestion",
-      "description": "kekeke"
-    },
-    {
-      "id": 17,
       "title": "Test",
-      "category": "UX",
-      "upvotes": 7,
-      "status": "Suggestion",
-      "description": "Test"
-    },
-    {
-      "id": 18,
-      "title": "TETSATasta",
       "category": "UI",
-      "upvotes": 15,
-      "status": "Suggestion",
-      "description": "asdasdas"
-    },
-    {
-      "id": 19,
-      "title": "666666666",
-      "category": "Feature",
-      "upvotes": 6,
-      "status": "Suggestion",
-      "description": "66666666"
+      "upvotes": 2,
+      "status": "Live",
+      "description": "Test"
     }
   ]
 }

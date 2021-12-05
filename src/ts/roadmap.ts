@@ -113,7 +113,7 @@ function render() {
 
 
             let cardTitle = document.querySelectorAll('.card__title h2');
-            console.log(cardTitle)
+            
 
             cardTitle.forEach(title => {
                 title?.addEventListener('click', (e) => {

@@ -65,13 +65,9 @@ function removeSelected(select: HTMLOptionElement) {
     lastSelect.setAttribute('selected', '');
 }
 
-
-
-
-
 function render(categorySearch: string, sortOrder: string) {
 
-    let sortQueries: any = {
+    let sortFunctions: any = {
         "Most upvotes": sortMostUpvotes,
         "Least upvotes": sortLeastUpvotes,
         "Most comments": sortMostComments,
@@ -80,9 +76,9 @@ function render(categorySearch: string, sortOrder: string) {
 
    let sortFunction: any;
 
-    for (let key in sortQueries) {
+    for (let key in sortFunctions) {
         if (sortOrder == key) {
-            sortFunction = sortQueries[key];
+            sortFunction = sortFunctions[key];
         }
     }
     
@@ -171,6 +167,9 @@ function render(categorySearch: string, sortOrder: string) {
                                 if (repl.replies) commLength += repl.replies.length
                             });
 
+                            
+
+
                             switch (categorySearch) {
                                 case 'All': {
                                     renderCategory(field, div, item, iconUp, iconComment, commLength);
@@ -222,7 +221,6 @@ function render(categorySearch: string, sortOrder: string) {
                                     window.location.assign('../feedback-detail.html');
                                 }
                             });
-
                             break;
                         }
 

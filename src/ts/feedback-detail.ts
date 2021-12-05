@@ -28,7 +28,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
                 let newCommentsArr: Comments[];
 
                 if (Response.comments) {
-                    newCommentsArr =  JSON.parse(JSON.stringify(Response.comments));
+                    newCommentsArr = JSON.parse(JSON.stringify(Response.comments));
                 } else {
                     newCommentsArr = [];
                 }
@@ -68,7 +68,7 @@ window.addEventListener('DOMContentLoaded', (e) => {
 
                 addNewSingleCommentInput.innerHTML = `
                     <h1 class="heading-one">Add comment</h1>
-                    <input type="text" class="input input__add" id="addNewSingleCommentInput" placeholder="Type your comment here">
+                    <input type="text" maxlength="250" class="input input__add" id="addNewSingleCommentInput" placeholder="Type your comment here">
                     <div class="feedback-detail__input-info mt-hard">
                     <div class="feedback-detail__character-left">
                         250 Character left
@@ -79,10 +79,23 @@ window.addEventListener('DOMContentLoaded', (e) => {
                     </div>
                 `;
 
+
+
                 mainContainer.insertAdjacentElement('beforeend', addNewSingleCommentInput);
-              
+
                 const submitNewSingleComment = document.querySelector('#addNewSingleComment') as HTMLLinkElement;
                 const newSingleCommentInput = document.querySelector('#addNewSingleCommentInput') as HTMLInputElement;
+
+                const characterLeftField = document.querySelector('.feedback-detail__character-left') as HTMLDivElement;
+
+                newSingleCommentInput.addEventListener('keyup', (e) => {
+                    let characterLeft = newSingleCommentInput.maxLength - newSingleCommentInput.value.length;
+                    characterLeftField.textContent = `${characterLeft} Character Left`;
+                });
+
+
+
+
 
                 submitNewSingleComment.addEventListener('click', (e) => {
                     e.preventDefault();
@@ -102,10 +115,10 @@ window.addEventListener('DOMContentLoaded', (e) => {
                         replies: null
                     }
 
-                    
-                        newCommentsArr.push(newComment);
 
-                        fetch(`http://localhost:3000/productRequests/${chosenFeedback}`, {
+                    newCommentsArr.push(newComment);
+
+                    fetch(`http://localhost:3000/productRequests/${chosenFeedback}`, {
                         method: 'PATCH',
                         headers: {
                             'Content-Type': 'application/json'
@@ -122,9 +135,9 @@ window.addEventListener('DOMContentLoaded', (e) => {
                             }
 
                         });
-                    
-                        
-                    
+
+
+
                 });
 
 
@@ -172,8 +185,8 @@ window.addEventListener('DOMContentLoaded', (e) => {
 
                 if (Response.comments) {
 
-                    
-                    
+
+
                     let replies: any[] = [];
                     let reply: Replies;
                     let replyTo: string;
@@ -398,8 +411,8 @@ window.addEventListener('DOMContentLoaded', (e) => {
                     });
 
 
-                   
-                } 
+
+                }
             });
 
     }

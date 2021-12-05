@@ -23,6 +23,12 @@
 
     }
 
+    &:hover {
+        h2 {
+            color: #4661E6;
+        }
+    }
+
     &__title {
         p {
             font-weight: normal;
@@ -70,6 +76,10 @@
             letter-spacing: -0.180556px;
 
             color: #3A4374;
+        }
+
+        &:hover {
+            background: #CFD7FF;
         }
 
     }

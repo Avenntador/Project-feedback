@@ -1,7 +1,7 @@
 import '../assets/sass/feedback-edit.scss';
 import { productRequests } from './server-response-interface';
 import { getData } from './services/getData';
-
+import validator from 'validator';
 
 const headerTitle = document.querySelector('.feedback-edit__name') as HTMLSpanElement;
 const inputTitle = document.querySelector('#title') as HTMLInputElement;
@@ -34,14 +34,16 @@ window.addEventListener('DOMContentLoaded', (e) => {
             inputDetail.value = Response.description;
         });
 
-        submitBtn?.addEventListener('click', (e) => {
-            e.preventDefault();
+    submitBtn?.addEventListener('click', (e) => {
+        e.preventDefault();
 
-            let title = inputTitle.value;
-            let category = selectCategory.options[selectCategory.selectedIndex].value;
-            let status = selectState.options[selectState.selectedIndex].value;
-            let description = inputDetail.value;
+        let title = inputTitle.value;
+        let category = selectCategory.options[selectCategory.selectedIndex].value;
+        let status = selectState.options[selectState.selectedIndex].value;
+        let description = inputDetail.value;
 
+
+        if ((!validator.isEmpty(title)) && (!validator.isEmpty(description))) {
             fetch(`http://localhost:3000/productRequests/${currentFeedbackId}`, {
                 method: 'PATCH',
                 headers: {
@@ -56,27 +58,30 @@ window.addEventListener('DOMContentLoaded', (e) => {
                     }
                 )
             })
+                .then(Response => {
+                    if (Response.status == 200) {
+                        window.location.assign('http://localhost:3100');
+                    }
+                })
+        }
+
+
+    });
+
+    deleteBtn?.addEventListener('click', (e) => {
+        e.preventDefault();
+
+
+        fetch(`http://localhost:3000/productRequests/${currentFeedbackId}`, {
+            method: 'DELETE',
+        })
             .then(Response => {
                 if (Response.status == 200) {
                     window.location.assign('http://localhost:3100');
-                }
-            })
-        });
 
-        deleteBtn?.addEventListener('click', (e) => {
-            e.preventDefault();
-
-
-            fetch(`http://localhost:3000/productRequests/${currentFeedbackId}`, {
-                method: 'DELETE',
-            })
-            .then(Response => {
-                if (Response.status == 200) {
-                    window.location.assign('http://localhost:3100');
-                    
                 }
             })
 
-        });
+    });
 
 });

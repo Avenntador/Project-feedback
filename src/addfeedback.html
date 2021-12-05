@@ -15,12 +15,13 @@
     <img inline src="./assets/images/shared/icon-arrow-left.svg" alt="">
     <a href="./index.html" class="link">&nbsp;Go back</a>
     <div class="new-feedback">
+      <form>
         <div class="new-feedback__logo"></div>
         <h1 class="heading-one">Create New Feedback</h1>
         <div class="new-feedback__item mt-hard">
           <h3 class="heading-three">Feedback Title</h3>
           <p class="new-feedback__text">Add a short, descriptive headline</p>
-          <input id="title" type="text" class="input">
+          <input id="title" type="text" class="input" minlength="1" required>
         </div>
         <div class="new-feedback__item mt-md">
           <h3 class="heading-three">Category</h3>
@@ -36,12 +37,15 @@
         <div class="new-feedback__item mt-md">
           <h3 class="heading-three">Feedback Detail</h3>
           <p class="new-feedback__text">Include any specific comments on what should be improved, added, etc.</p>
-          <input id="detail" type="text" class="input input_detail">
+          <input id="detail" type="text" class="input input_detail" required>
         </div>
         <div class="new-feedback__buttons">
-          <a href="./index.html" class="btn ">Cancel</a>
-          <a href="#" id="submitAdd" class="btn btn__magenta ml-light">Add Feedback</a>
+          <a href="./index.html" class="btn btn__dark-blue">Cancel</a>
+          <!-- <a href="#" id="submitAdd" class="btn btn__magenta ml-light">Add Feedback</a> -->
+          <button type="button" id="submitAdd" class="btn btn__magenta ml-light">Add Feedback</button>
         </div>
+      </form>
+        
     </div>
   </div>
 </body>

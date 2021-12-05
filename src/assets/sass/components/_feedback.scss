@@ -12,6 +12,14 @@
     display: flex;
     cursor: pointer;
 
+
+    &:hover {
+        h1 {
+            color: #4661E6;
+        }
+    }
+
+
     &__container {
         width: 73rem;
         height: 126rem;
@@ -74,6 +82,9 @@
         color: #3A4374;
         cursor: pointer;
 
+        &:hover {
+            background: #CFD7FF;
+        }
 
         img {
             margin-bottom: .5rem;

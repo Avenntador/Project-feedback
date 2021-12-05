@@ -12,13 +12,33 @@
 
     &__magenta {
         background: $color-magenta;
+
+        &:hover {
+            background: #C75AF6;
+        }
     }
 
     &__blue {
         background: $color-dark-blue;
+        
+        &:hover {
+            background: #7C91F9;
+        }
     }
 
     &__red {
         background: #D73737;
+        &:hover {
+            background: #E98888;
+        }
     }
+
+    &__dark-blue {
+        background: #3A4374;
+        &:hover {
+            background: #656EA3;
+        }
+    }
+
+    
 }
