@@ -1,7 +1,7 @@
-import '../assets/sass/feedback-detailPage.scss';
-import { FeedbackObject } from './feedback/feedback-interface';
+import '../../assets/sass/feedback-detailPage.scss';
+import { FeedbackObject } from '../interfaces/feedback-interface';
 import validator from 'validator';
-
+import { addFeedback } from '../services/addFeedback';
 
 const inputTitle = document.querySelector('#title')! as HTMLInputElement;
 const selectCategory = document.querySelector('#category')! as HTMLSelectElement;
@@ -16,20 +16,6 @@ window.addEventListener('DOMContentLoaded', (e) => {
 
 
 
-async function addFeedback(body: FeedbackObject) {
-    let Response = fetch('http://localhost:3000/productRequests', {
-        method: 'POST',
-        headers: {
-            'Content-type': 'application/json'
-        },
-        body: JSON.stringify(body)
-    });
-
-    return (await Response);
-}
-
-
-
 submitBtn.addEventListener('click', (e) => {
     let feedback: FeedbackObject = {
         id: 0,
@@ -40,11 +26,8 @@ submitBtn.addEventListener('click', (e) => {
         description: ''
     };
 
-
     feedbackId++;
     localStorage.setItem('currentFeedbacksCounter', feedbackId.toString());
-
-
 
     feedback.id = feedbackId;
     feedback.category = selectCategory.value;
@@ -60,6 +43,5 @@ submitBtn.addEventListener('click', (e) => {
                 }
             })
     }
-    
 });
 

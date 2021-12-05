@@ -35,10 +35,10 @@ module.exports = {
     context: path.resolve(__dirname, 'src'),
     mode: 'development',
     entry: {
-        index: '/ts/app.ts',
+        index: '/ts/app/app.ts',
         roadmap: '/ts/roadmap.ts',
-        addfeedback: '/ts/feedback-add.ts',
-        feedbackDetail: '/ts/feedback-detail.ts',
+        addfeedback: '/ts/feedback-add/feedback-add.ts',
+        feedbackDetail: '/ts/feedback-detail/feedback-detail.ts',
         feedbackEdit: '/ts/feedback-edit.ts'
     },
     output: {

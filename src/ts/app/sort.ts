@@ -1,5 +1,4 @@
-import { productRequests } from "./server-response-interface";
-
+import { productRequests } from "../interfaces/server-response-interface";
 
 
 export function sortMostUpvotes(a: productRequests, b:productRequests):any {
@@ -9,6 +8,7 @@ export function sortMostUpvotes(a: productRequests, b:productRequests):any {
 export function sortLeastUpvotes(a: productRequests, b:productRequests):any {
     return a.upvotes - b.upvotes
 }
+
 export function sortMostComments(a: productRequests, b:productRequests):any {
     let aTotalComments = 0;
     let bTotalComments = 0;
@@ -31,6 +31,7 @@ export function sortMostComments(a: productRequests, b:productRequests):any {
     }
     return bTotalComments - aTotalComments;
 }
+
 export function sortLeastComments(a: productRequests, b:productRequests):any {
     let aTotalComments = 0;
                 let bTotalComments = 0;

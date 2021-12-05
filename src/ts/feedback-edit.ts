@@ -1,5 +1,5 @@
 import '../assets/sass/feedback-edit.scss';
-import { productRequests } from './server-response-interface';
+import { productRequests } from './interfaces/server-response-interface';
 import { getData } from './services/getData';
 import validator from 'validator';
 

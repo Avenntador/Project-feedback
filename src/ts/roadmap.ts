@@ -1,6 +1,6 @@
 import '../assets/sass/roadmap.scss'
 import { getData } from './services/getData';
-import { productRequests } from './server-response-interface';
+import { productRequests } from './interfaces/server-response-interface';
 import { upvoteFeedback } from './services/upvote';
 
 const iconUp = require("../assets/images/shared/icon-arrow-up.svg") as string;
@@ -163,11 +163,5 @@ function render() {
 
 
 window.addEventListener('DOMContentLoaded', (e) => {
-
-
-
-
     render();
-
-
 });

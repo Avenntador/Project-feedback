@@ -96,7 +96,7 @@
       "id": 3,
       "title": "Q&A within the challenge hubs",
       "category": "Feature",
-      "upvotes": 165,
+      "upvotes": 167,
       "status": "Suggestion",
       "description": "Challenge-specific Q&A would make for easy reference.",
       "comments": [
@@ -146,7 +146,7 @@
       "id": 4,
       "title": "Add image/video upload to feedback",
       "category": "Enhancement",
-      "upvotes": 139,
+      "upvotes": 141,
       "status": "Suggestion",
       "description": "Images and screencasts can enhance comments on solutions.",
       "comments": [
@@ -213,7 +213,7 @@
       "id": 6,
       "title": "Preview images not loading",
       "category": "Bug",
-      "upvotes": 228,
+      "upvotes": 230,
       "status": "Suggestion",
       "description": "Challenge preview images are missing when you apply a filter.",
       "comments": [
@@ -234,8 +234,56 @@
                 "name": "Zena Kelley",
                 "username": "velvetround"
               }
+            },
+            {
+              "content": "qweqq",
+              "replyingTo": "velvetround",
+              "user": {
+                "image": "/js/../assets/images/image-zena..jpg",
+                "name": "Zena Kelley",
+                "username": "velvetround"
+              }
             }
           ]
+        },
+        {
+          "id": 17,
+          "content": "qweqw",
+          "user": {
+            "image": "/js/../assets/images/image-zena..jpg",
+            "name": "Zena Kelley",
+            "username": "velvetround"
+          },
+          "replies": [
+            {
+              "content": " qweq",
+              "replyingTo": "velvetround",
+              "user": {
+                "image": "/js/../assets/images/image-zena..jpg",
+                "name": "Zena Kelley",
+                "username": "velvetround"
+              }
+            },
+            {
+              "content": "xxxxxx",
+              "replyingTo": "velvetround",
+              "user": {
+                "image": "/js/../assets/images/image-zena..jpg",
+                "name": "Zena Kelley",
+                "username": "velvetround"
+              }
+            }
+          ]
+        },
+        {
+          "id": 18,
+          "content": "xxxxxxx",
+          "user": {
+            "image": "/js/../assets/images/image-zena..jpg",
+            "name": "Zena Kelley",
+            "username": "velvetround"
+          },
+          "replies": null
         }
       ]
     },
@@ -397,6 +445,36 @@
       "upvotes": 2,
       "status": "Live",
       "description": "Test"
+    },
+    {
+      "id": 16,
+      "title": "wwwwwwwww",
+      "category": "Feature",
+      "upvotes": 0,
+      "status": "Suggestion",
+      "description": "eeeeeeeeeeeee",
+      "comments": [
+        {
+          "id": 17,
+          "content": "xxxxxxxxxxxxx",
+          "user": {
+            "image": "/js/../assets/images/image-zena..jpg",
+            "name": "Zena Kelley",
+            "username": "velvetround"
+          },
+          "replies": [
+            {
+              "content": " zzzzzzzzzzz",
+              "replyingTo": "velvetround",
+              "user": {
+                "image": "/js/../assets/images/image-zena..jpg",
+                "name": "Zena Kelley",
+                "username": "velvetround"
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -1,4 +1,4 @@
-import { FeedbackObject } from "./feedback/feedback-interface";
+import { FeedbackObject } from "../interfaces/feedback-interface";
 
 export function renderCategory(field: HTMLElement, elem: HTMLElement, item: FeedbackObject, iconUp: string, iconComment: string, commLength: number) {
 
