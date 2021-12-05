@@ -10,7 +10,7 @@ import { renderFeedback } from './renderFeedback';
 import { renderHeader } from './renderHeader';
 import { renderSingleComment } from './renderSingleComment';
 import { renderMultiComment } from './renderMultiComment';
-
+import { newSingleCommentListener } from './newSingleCommentListener';
 
 export function render(mainContainer: HTMLDivElement, chosenFeedback: string) {
 
@@ -42,37 +42,11 @@ export function render(mainContainer: HTMLDivElement, chosenFeedback: string) {
 
             characterLeftListener(characterLeftField, newSingleCommentInput);
 
-
-
-            submitNewSingleComment.addEventListener('click', (e) => {
-                e.preventDefault();
-
-                let currentMaxCommentId = parseInt(localStorage.getItem('currentMaxCommentId')!);
-                currentMaxCommentId++;
-                localStorage.setItem('currentMaxCommentId', currentMaxCommentId.toString());
-
-                let newComment: Comments = {
-                    id: currentMaxCommentId,
-                    content: newSingleCommentInput.value,
-                    user: {
-                        image: currentUser.image,
-                        name: currentUser.name,
-                        username: currentUser.username
-                    },
-                    replies: null
-                }
-
-                newCommentsArr.push(newComment);
-
-                sendComment(chosenFeedback, newCommentsArr)
-                    .then(Response => {
-                        if (Response.status == 200) {
-                            render(mainContainer, chosenFeedback);
-                        }
-                    });
-            });
-
             let currentUser: currentUser = JSON.parse(localStorage.getItem('currentUser')!);
+
+            newSingleCommentListener(mainContainer, submitNewSingleComment, newSingleCommentInput, currentUser, newCommentsArr, chosenFeedback);
+
+            
             let commLength = 0;
             if (Response.comments) commLength += Response.comments.length;
             Response.comments?.forEach(repl => {

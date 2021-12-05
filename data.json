@@ -48,7 +48,7 @@
       "id": 2,
       "title": "Add a dark theme option",
       "category": "Feature",
-      "upvotes": 137,
+      "upvotes": 135,
       "status": "Suggestion",
       "description": "It would help people with light sensitivities and who prefer dark mode.",
       "comments": [
@@ -96,7 +96,7 @@
       "id": 3,
       "title": "Q&A within the challenge hubs",
       "category": "Feature",
-      "upvotes": 167,
+      "upvotes": 163,
       "status": "Suggestion",
       "description": "Challenge-specific Q&A would make for easy reference.",
       "comments": [
@@ -107,38 +107,7 @@
             "image": "/js/../assets/images/image-george..jpg",
             "name": "George Partridge",
             "username": "soccerviewer8"
-          },
-          "replies": [
-            {
-              "content": " qqqqq",
-              "replyingTo": "soccerviewer8",
-              "user": {
-                "image": "/js/../assets/images/image-zena..jpg",
-                "name": "Zena Kelley",
-                "username": "velvetround"
-              }
-            }
-          ]
-        },
-        {
-          "id": 17,
-          "content": "qweqw",
-          "user": {
-            "image": "/js/../assets/images/image-zena..jpg",
-            "name": "Zena Kelley",
-            "username": "velvetround"
-          },
-          "replies": [
-            {
-              "content": " wwww",
-              "replyingTo": "velvetround",
-              "user": {
-                "image": "/js/../assets/images/image-zena..jpg",
-                "name": "Zena Kelley",
-                "username": "velvetround"
-              }
-            }
-          ]
+          }
         }
       ]
     },
@@ -146,7 +115,7 @@
       "id": 4,
       "title": "Add image/video upload to feedback",
       "category": "Enhancement",
-      "upvotes": 141,
+      "upvotes": 138,
       "status": "Suggestion",
       "description": "Images and screencasts can enhance comments on solutions.",
       "comments": [
@@ -174,7 +143,7 @@
       "id": 5,
       "title": "Ability to follow others",
       "category": "Feature",
-      "upvotes": 92,
+      "upvotes": 91,
       "status": "Suggestion",
       "description": "Stay updated on comments and solutions other people post.",
       "comments": [
@@ -213,7 +182,7 @@
       "id": 6,
       "title": "Preview images not loading",
       "category": "Bug",
-      "upvotes": 230,
+      "upvotes": 226,
       "status": "Suggestion",
       "description": "Challenge preview images are missing when you apply a filter.",
       "comments": [
@@ -234,56 +203,8 @@
                 "name": "Zena Kelley",
                 "username": "velvetround"
               }
-            },
-            {
-              "content": "qweqq",
-              "replyingTo": "velvetround",
-              "user": {
-                "image": "/js/../assets/images/image-zena..jpg",
-                "name": "Zena Kelley",
-                "username": "velvetround"
-              }
             }
           ]
-        },
-        {
-          "id": 17,
-          "content": "qweqw",
-          "user": {
-            "image": "/js/../assets/images/image-zena..jpg",
-            "name": "Zena Kelley",
-            "username": "velvetround"
-          },
-          "replies": [
-            {
-              "content": " qweq",
-              "replyingTo": "velvetround",
-              "user": {
-                "image": "/js/../assets/images/image-zena..jpg",
-                "name": "Zena Kelley",
-                "username": "velvetround"
-              }
-            },
-            {
-              "content": "xxxxxx",
-              "replyingTo": "velvetround",
-              "user": {
-                "image": "/js/../assets/images/image-zena..jpg",
-                "name": "Zena Kelley",
-                "username": "velvetround"
-              }
-            }
-          ]
-        },
-        {
-          "id": 18,
-          "content": "xxxxxxx",
-          "user": {
-            "image": "/js/../assets/images/image-zena..jpg",
-            "name": "Zena Kelley",
-            "username": "velvetround"
-          },
-          "replies": null
         }
       ]
     },
@@ -376,7 +297,7 @@
       "id": 11,
       "title": "Animated solution screenshots",
       "category": "Bug",
-      "upvotes": 24,
+      "upvotes": 23,
       "status": "In-progress",
       "description": "Screenshots of solutions with animations don’t display correctly."
     },
@@ -422,7 +343,7 @@
       "id": 14,
       "title": "Enchance roadmap please!!!!!!!!!!!!!",
       "category": "UX",
-      "upvotes": 14,
+      "upvotes": 13,
       "status": "In-progress",
       "description": "suka daisdjioa0sda[",
       "comments": [
@@ -448,15 +369,15 @@
     },
     {
       "id": 16,
-      "title": "wwwwwwwww",
+      "title": "AnotherTest",
       "category": "Feature",
       "upvotes": 0,
-      "status": "Suggestion",
-      "description": "eeeeeeeeeeeee",
+      "status": "In-progress",
+      "description": "AnotherTest",
       "comments": [
         {
-          "id": 17,
-          "content": "xxxxxxxxxxxxx",
+          "id": 15,
+          "content": "",
           "user": {
             "image": "/js/../assets/images/image-zena..jpg",
             "name": "Zena Kelley",
@@ -464,7 +385,7 @@
           },
           "replies": [
             {
-              "content": " zzzzzzzzzzz",
+              "content": " qweq",
               "replyingTo": "velvetround",
               "user": {
                 "image": "/js/../assets/images/image-zena..jpg",

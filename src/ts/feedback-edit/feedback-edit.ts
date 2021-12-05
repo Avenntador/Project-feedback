@@ -1,7 +1,9 @@
-import '../assets/sass/feedback-edit.scss';
-import { productRequests } from './interfaces/server-response-interface';
-import { getData } from './services/getData';
+import '../../assets/sass/feedback-edit.scss';
+import { productRequests } from '../interfaces/server-response-interface';
+import { getData } from '../services/getData';
 import validator from 'validator';
+import { deleteData } from '../services/deleteData';
+import { updateData } from '../services/updateData';
 
 const headerTitle = document.querySelector('.feedback-edit__name') as HTMLSpanElement;
 const inputTitle = document.querySelector('#title') as HTMLInputElement;
@@ -42,22 +44,8 @@ window.addEventListener('DOMContentLoaded', (e) => {
         let status = selectState.options[selectState.selectedIndex].value;
         let description = inputDetail.value;
 
-
         if ((!validator.isEmpty(title)) && (!validator.isEmpty(description))) {
-            fetch(`http://localhost:3000/productRequests/${currentFeedbackId}`, {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(
-                    {
-                        title: title,
-                        category: category,
-                        status: status,
-                        description: description
-                    }
-                )
-            })
+            updateData(currentFeedbackId!, title, category, description, status)
                 .then(Response => {
                     if (Response.status == 200) {
                         window.location.assign('http://localhost:3100');
@@ -70,18 +58,11 @@ window.addEventListener('DOMContentLoaded', (e) => {
 
     deleteBtn?.addEventListener('click', (e) => {
         e.preventDefault();
-
-
-        fetch(`http://localhost:3000/productRequests/${currentFeedbackId}`, {
-            method: 'DELETE',
-        })
+        deleteData(currentFeedbackId!)
             .then(Response => {
                 if (Response.status == 200) {
                     window.location.assign('http://localhost:3100');
-
                 }
             })
-
     });
-
 });

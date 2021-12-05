@@ -36,15 +36,14 @@ module.exports = {
     mode: 'development',
     entry: {
         index: '/ts/app/app.ts',
-        roadmap: '/ts/roadmap.ts',
+        roadmap: '/ts/roadmap/roadmap.ts',
         addfeedback: '/ts/feedback-add/feedback-add.ts',
         feedbackDetail: '/ts/feedback-detail/feedback-detail.ts',
-        feedbackEdit: '/ts/feedback-edit.ts'
+        feedbackEdit: '/ts/feedback-edit/feedback-edit.ts'
     },
     output: {
         filename: 'js/[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
-        // assetModuleFilename: 'assets/'
     },
     resolve: {
         extensions: ['.ts', '.js', '.json']
