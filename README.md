@@ -7,7 +7,6 @@ This is a solution to the [Product feedback app challenge on Frontend Mentor](ht
 - [Overview](#overview)
   - [The challenge](#the-challenge)
   - [Screenshot](#screenshot)
-  - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
@@ -31,11 +30,6 @@ Users should be able to:
 ### Screenshot
 
 ![](https://user-images.githubusercontent.com/29005134/144379377-13f27b7d-4295-4b8f-ae04-4575230aed1e.jpg)
-
-### Links
-
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
 ## My process
 
