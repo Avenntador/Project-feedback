@@ -12,7 +12,6 @@ This is a solution to the [Product feedback app challenge on Frontend Mentor](ht
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
 
 ## Overview
@@ -58,13 +57,7 @@ While developing this project, I learned how to create applications such as CRUD
 I want to pay more attention to the cleanliness, structure of the code, to make it more universal, readable and maintainable
 
 
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- Website - [About me](https://bgf-cv.ru/)
+- Telegramm - [Avenntador](https://t.me/avenntador)
